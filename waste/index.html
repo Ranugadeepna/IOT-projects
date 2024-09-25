@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLTB Waste Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="#home" class="logo">G5<span class="span1">Waste Manage</span></a>
+        <nav class="navbar">
+            <a href="#home"><i class="bx bx-home"></i> Home</a>
+            <a href="#about"><i class="bx bx-info-circle"></i> About</a>
+            <a href="#contact"><i class="bx bx-envelope"></i> Contact</a>
+        </nav>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <a href="#home" class="slogo">&emsp;MENU</a>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+                <li><a href="#home"><i class="bx bx-home"></i> Add Bins</a></li>
+                <li><a href="#about"><i class="bx bx-info-circle"></i> Dashboard</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="smenu">
+        <span onclick="openNav()">&#9776; Menu</span>
+    </div>
+
+    <section id="main" class="main">
+        <div class="home-content">
+            <h1>Agraganya Waste Management System</h1>
+            <h2>Dashboard</h2>
+        </div>
+
+        <div id="dustbin-1" class="dustbin-card">
+            <div class="card-header">
+                <h3>Smart Dustbin #1</h3>
+            </div>
+            <div class="card-body">
+                <div class="visual-indicator">
+                    <div class="visual-level" id="level-dustbin-1" style="height: 0%;"></div> <!-- Initially 0% -->
+                </div>
+                <div class="dustbin-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Status</span>
+                </div>
+                <p>Location: Central Park</p>
+                <p class="capacity">Capacity: 0% Full</p>
+            </div>
+        </div>
+
+        <div id="dustbin-2" class="dustbin-card">
+            <div class="card-header">
+                <h3>Smart Dustbin #2</h3>
+            </div>
+            <div class="card-body">
+                <div class="visual-indicator">
+                    <div class="visual-level" id="level-dustbin-1" style="height: 0%;"></div> <!-- Initially 0% -->
+                </div>
+                <div class="dustbin-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Status</span>
+                </div>
+                <p>Location: Central Park</p>
+                <p class="capacity">Capacity: 0% Full</p>
+            </div>
+        </div>
+
+        <div id="dustbin-3" class="dustbin-card">
+            <div class="card-header">
+                <h3>Smart Dustbin #3</h3>
+            </div>
+            <div class="card-body">
+                <div class="visual-indicator">
+                    <div class="visual-level" id="level-dustbin-1" style="height: 0%;"></div> <!-- Initially 0% -->
+                </div>
+                <div class="dustbin-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Status</span>
+                </div>
+                <p>Location: Central Park</p>
+                <p class="capacity">Capacity: 0% Full</p>
+            </div>
+        </div>
+        
+        
+        
+        <!-- Add more dustbin cards as needed -->
+        
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        updateDustbinStatus('dustbin-1', 80);
+        updateDustbinStatus('dustbin-2', 10);
+        updateDustbinStatus('dustbin-3', 50);
+    </script>
+</body>
+</html>

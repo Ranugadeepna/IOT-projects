@@ -1,0 +1,209 @@
+/* Global Styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    position: fixed;
+    background-color: #333;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header:hover {
+    background-color: #444;
+}
+
+.logo {
+    font-size: 44px;
+    color: #fff;
+    margin: 10px 20px;
+    font-weight: 800;
+}
+
+.logo .span1 {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #ffcc00;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: flex-end; 
+    font-size: 18px;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 15px;
+    margin-right: 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #ffcc00;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #333;
+    color: #fff;
+    z-index: 1;
+    overflow: hidden;
+    transition: width 0.5s ease-in-out;
+}
+
+.sidebar-brand {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sidebar ul {
+    padding: 0;
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    padding: 20px;
+    border-bottom: 1px solid #444;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    display: block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar ul li:hover {
+    background-color: #555;
+}
+
+.closebtn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 36px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Main Content */
+.main {
+    text-align: center;
+    margin-top: 120px; /* Adjust for fixed header */
+}
+
+.main h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.smenu {
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    margin-top: 10px;
+    padding: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.smenu:hover {
+    color: #ffcc00;
+}
+
+/* Dustbin Card Styles */
+.dustbin-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+.visual-indicator {
+    height: 150px; /* Adjust height of the visual container */
+    width: 50px; /* Fixed width for the visual level */
+    background-color: #eee; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Prevent overflow */
+    position: relative; /* Position for child elements */
+    display: flex; /* Align items */
+    justify-content: center; /* Center the visual level */
+}
+
+.visual-level {
+    width: 100%; /* Full width of the visual container */
+    height: 0%; /* Initial height */
+    transition: height 0.5s ease; /* Smooth transition */
+    background-color: rgba(42, 148, 235, 0.562); /* Default color */
+    border-radius: 10px; /* Match corners */
+    position: absolute; /* Position it within the visual indicator */
+    bottom: 0; /* Align to the bottom */
+}
+
+
+
+/* Colors based on capacity */
+.full .visual-level {
+    background-color: red;
+}
+
+.half-full .visual-level {
+    background-color: orange;
+}
+
+.not-full .visual-level {
+    background-color: green;
+}
+
+.dustbin-status {
+    margin-top: 10px;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Card Text Styles */
+.capacity {
+    margin-top: 10px;
+    font-weight: 600;
+}
