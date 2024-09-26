@@ -1,0 +1,39 @@
+{
+    "id": "9ac8ca4d-676f-43bf-9f38-d2655a42574b",
+    "author": "",
+    "widgets": [
+        {
+            "id": "wastewidget",
+            "name": "wastewidget",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[]
+            "category":"",
+            "isTemplate": true/false // this will mark the widget as a template 
+        }
+    ],
+    "sidebarLinks": [
+        {
+            "id": "wastewidgetLink",
+            "label": "",
+            "description": "",
+            "target": "",
+            "icon": "",
+            "roles":[]
+        }
+    ],
+    "uis": [
+        {
+            "id": "wastewidgetLink",
+            "label":"",
+            "description": "",
+            "roles": []
+        }
+    ],
+    "menuItems": [
+        {
+            "id": "wastewidgetLink",
+            "title": "wastewidget"
+        }
+    ]
+}
