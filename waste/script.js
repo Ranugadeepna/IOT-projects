@@ -25,15 +25,15 @@ function updateDustbinStatus(id, capacity) {
     if (capacity >= 75) {
         statusIndicator.style.backgroundColor = 'red'; // Full
         capacityText.textContent = `Capacity: ${capacity}% `;
-        statusText.textContent = 'Status: Full';
+        statusText.textContent = ' Full';
     } else if (capacity >= 50) {
         statusIndicator.style.backgroundColor = 'orange'; // Half Full
         capacityText.textContent = `Capacity: ${capacity}%`;
-        statusText.textContent = 'Status: Half Full';
+        statusText.textContent = ' Half Full';
     } else {
         statusIndicator.style.backgroundColor = 'green'; // Not Full
         capacityText.textContent = `Capacity: ${capacity}%`;
-        statusText.textContent = 'Status: Not Full';
+        statusText.textContent = 'Not Full';
     }
 }
 
