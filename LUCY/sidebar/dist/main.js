@@ -11,7 +11,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, ".dustbin-card {\n  background-color: #fff;\n  border-radius: 10px;\n  padding: 20px;\n  margin: 10px;\n  width: 300px;\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);\n  text-align: center;\n  position: relative;\n  display: inline-block;\n}\n\n.visual-indicator {\n  height: 150px;\n  width: 50px;\n  background-color: #eee;\n  border-radius: 10px;\n  overflow: hidden;\n  position: relative;\n  display: flex;\n  justify-content: center;\n}\n\n.visual-level {\n  width: 100%;\n  height: 0%;\n  transition: height 0.5s ease;\n  background-color: rgba(42, 148, 235, 0.562);\n  border-radius: 10px;\n  position: absolute;\n  bottom: 0;\n}\n\n.full .visual-level {\n  background-color: red;\n}\n\n.half-full .visual-level {\n  background-color: orange;\n}\n\n.not-full .visual-level {\n  background-color: green;\n}\n\n.dustbin-status {\n  margin-top: 10px;\n}\n\n.status-indicator {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  margin-right: 5px;\n}\n\n.capacity {\n  margin-top: 10px;\n  font-weight: 600;\n}", ""]);
+exports.push([module.id, "/* Super-styled sidebar */\n.sidebar {\n  background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient background */\n  height: 600px;\n  width: 400px;\n  color: white;\n  display: flex;\n  flex-direction: column;\n  box-sizing: border-box;\n  border-radius: 20px;\n  padding: 25px;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for elevated effect */\n  font-family: \"Poppins\", sans-serif; /* Modern font */\n  transition: transform 0.3s ease;\n}\n\n.sidebar:hover {\n  transform: scale(1.02); /* Slight zoom on hover */\n}\n\n.sidebarnav {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 50px; /* More space between the items */\n}\n\n.sidebarnav a {\n  text-decoration: none;\n  color: white;\n  font-size: 20px; /* Slightly bigger font */\n  padding: 15px 20px;\n  border-radius: 10px;\n  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Light shadow for buttons */\n  transition: all 0.3s ease; /* Smooth transitions */\n  letter-spacing: 1px; /* Spacing between letters for a modern look */\n  text-align: center;\n}\n\n.sidebarnav a:hover {\n  background-color: #00b4ff; /* Bright blue on hover */\n  color: white;\n  box-shadow: 0 10px 30px rgba(0, 180, 255, 0.6); /* Glowing effect */\n  transform: translateY(-5px); /* Lift the link slightly */\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -429,68 +429,6 @@ module.exports = content.locals || {};
 
 /***/ }),
 
-/***/ "./src/DustbinCard.tsx":
-/*!*****************************!*\
-  !*** ./src/DustbinCard.tsx ***!
-  \*****************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importDefault(__webpack_require__(/*! react */ "react"));
-const react_2 = __webpack_require__(/*! react */ "react");
-const DustbinCard = () => {
-    const [capacity, setCapacity] = (0, react_2.useState)(0);
-    const [statusColor, setStatusColor] = (0, react_2.useState)('green');
-    const [statusText, setStatusText] = (0, react_2.useState)('Not Full');
-    const [dustbinId, setDustbinId] = (0, react_2.useState)('dustbin-1');
-    (0, react_2.useEffect)(() => {
-        // setCapacity(80); 
-        updateDustbinStatus(80);
-    }, []);
-    const updateDustbinStatus = (newCapacity) => {
-        setCapacity(newCapacity);
-        if (newCapacity >= 75) {
-            setStatusColor('red');
-            setStatusText('Full');
-        }
-        else if (newCapacity >= 50) {
-            setStatusColor('orange');
-            setStatusText('Half Full');
-        }
-        else {
-            setStatusColor('green');
-            setStatusText('Not Full');
-        }
-    };
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { id: "dustbin-1", className: "dustbin-card" },
-            react_1.default.createElement("div", { className: "card-header" },
-                react_1.default.createElement("h3", null,
-                    "Smart ",
-                    dustbinId,
-                    " ")),
-            react_1.default.createElement("div", { className: "card-body" },
-                react_1.default.createElement("div", { className: "visual-indicator" },
-                    react_1.default.createElement("div", { className: "visual-level", style: { height: `${capacity}%` } })),
-                react_1.default.createElement("div", { className: "dustbin-status" },
-                    react_1.default.createElement("span", { className: "status-indicator", style: { backgroundColor: statusColor } }),
-                    react_1.default.createElement("span", { className: "status-text" }, statusText)),
-                react_1.default.createElement("p", null, "Location: Central Park"),
-                react_1.default.createElement("p", { className: "capacity" },
-                    "Capacity: ",
-                    capacity,
-                    "% Full")))));
-};
-exports["default"] = DustbinCard;
-
-
-/***/ }),
-
 /***/ "./src/index.tsx":
 /*!***********************!*\
   !*** ./src/index.tsx ***!
@@ -522,24 +460,28 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "react"));
 const uxp_1 = __webpack_require__(/*! ./uxp */ "./src/uxp.ts");
-const DustbinCard_1 = __importDefault(__webpack_require__(/*! ./DustbinCard */ "./src/DustbinCard.tsx"));
+// import Sidebar from "./components/sidebar";
 __webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
-const WastewidgetWidget = (props) => {
+const SidebarWidget = (props) => {
     return (React.createElement(React.Fragment, null,
-        React.createElement(DustbinCard_1.default, null)));
+        React.createElement("div", { className: "sidebar" },
+            React.createElement("ul", { className: "sidebarnav" },
+                React.createElement("li", null,
+                    React.createElement("a", { href: "#" }, "BINS")),
+                React.createElement("li", null,
+                    React.createElement("a", { href: "#" }, "CATEGORIES")),
+                React.createElement("li", null,
+                    React.createElement("a", { href: "#" }, "SETTINGS"))))));
 };
 /**
  * Register as a Widget
  */
 (0, uxp_1.registerWidget)({
-    id: "wastewidget",
-    widget: WastewidgetWidget,
+    id: "sidebar",
+    widget: SidebarWidget,
     configs: {
         layout: {
         // w: 12,
@@ -554,10 +496,10 @@ const WastewidgetWidget = (props) => {
  */
 /*
 registerLink({
-    id: "wastewidget",
-    label: "Wastewidget",
+    id: "sidebar",
+    label: "Sidebar",
     // click: () => alert("Hello"),
-    component: WastewidgetWidget
+    component: SidebarWidget
 });
 */
 /**
@@ -565,8 +507,8 @@ registerLink({
  */
 /*
 registerUI({
-   id:"wastewidget",
-   component: WastewidgetWidget
+   id:"sidebar",
+   component: SidebarWidget
 });
 */
 /**
@@ -575,10 +517,10 @@ registerUI({
  */
 /**
 registerCustomWidgetTemplate({
-    id: "wastewidget", // use all lowercase letters
-    name: 'Wastewidget',
+    id: "sidebar", // use all lowercase letters
+    name: 'Sidebar',
     description: 'Tempalte Description',
-    template: WastewidgetWidget,
+    template: SidebarWidget,
     moduleId: BundleConfig.id,
     complexity: 'advanced',
     icon: ['fas', 'list'],
@@ -810,7 +752,7 @@ module.exports = React;
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"id":"b24647dc-1fa8-4cd9-d522-381c05475746","author":"","widgets":[{"id":"wastewidget","name":"wastewidget","description":"A sample widget","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
+module.exports = /*#__PURE__*/JSON.parse('{"id":"5183bab9-b0db-4f11-a9b9-9d91f4c37765","author":"","widgets":[{"id":"sidebar","name":"sidebar","description":"A sample widget","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
 
 /***/ }),
 

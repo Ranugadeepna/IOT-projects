@@ -1,10 +1,9 @@
 import * as React from "react";
 import { registerWidget, registerLink, registerUI, IContextProvider, enableLocalization, registerCustomWidgetTemplate, } from './uxp';
-import { TitleBar, FilterPanel, WidgetWrapper } from "uxp/components";
+import { TitleBar, FilterPanel, WidgetWrapper,} from "uxp/components";
 import { IWDDesignModeProps } from "widget-designer/components";
 import BundleConfig from '../bundle.json';
-import  DustbinCard from "./DustbinCard"
-
+// import Sidebar from "./components/sidebar";
 
 
 import './styles.scss';
@@ -15,30 +14,34 @@ export interface IWidgetProps {
     designer?: IWDDesignModeProps,
     uiProps?: any
 }
-import { useState, useEffect } from 'react';
 
-const WastewidgetWidget: React.FunctionComponent<IWidgetProps> = (props) => {
-
-  
+const SidebarWidget: React.FunctionComponent<IWidgetProps> = (props) => {
     return (
-      <>
-       <DustbinCard />
+       <>
+
+
+      <div className="sidebar">
+  <ul className="sidebarnav">
+    <li><a href="#">BINS</a></li>
+    <li><a href="#">CATEGORIES</a></li>
+    <li><a href="#">SETTINGS</a></li>
+  </ul>
+</div>
+
+     
+      
+    
        
-
-      
-      </>
-      
-      
-    );
-  };
-
+       </>
+    )
+};
 
 /**
  * Register as a Widget
  */
 registerWidget({
-    id: "wastewidget",
-    widget: WastewidgetWidget,
+    id: "sidebar",
+    widget: SidebarWidget,
     configs: {
         layout: {
             // w: 12,
@@ -54,10 +57,10 @@ registerWidget({
  */
 /*
 registerLink({
-    id: "wastewidget",
-    label: "Wastewidget",
+    id: "sidebar",
+    label: "Sidebar",
     // click: () => alert("Hello"),
-    component: WastewidgetWidget
+    component: SidebarWidget
 });
 */
 
@@ -67,8 +70,8 @@ registerLink({
 
 /*
 registerUI({
-   id:"wastewidget",
-   component: WastewidgetWidget
+   id:"sidebar",
+   component: SidebarWidget
 });
 */
 
@@ -80,10 +83,10 @@ registerUI({
 
 /**
 registerCustomWidgetTemplate({
-    id: "wastewidget", // use all lowercase letters
-    name: 'Wastewidget',
+    id: "sidebar", // use all lowercase letters
+    name: 'Sidebar',
     description: 'Tempalte Description',
-    template: WastewidgetWidget,
+    template: SidebarWidget,
     moduleId: BundleConfig.id,
     complexity: 'advanced',
     icon: ['fas', 'list'],
