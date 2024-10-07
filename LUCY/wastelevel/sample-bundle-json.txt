@@ -1,0 +1,39 @@
+{
+    "id": "368b6551-e3cd-4807-a239-bcfe1b42a4ff",
+    "author": "",
+    "widgets": [
+        {
+            "id": "wastelevel",
+            "name": "wastelevel",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[]
+            "category":"",
+            "isTemplate": true/false // this will mark the widget as a template 
+        }
+    ],
+    "sidebarLinks": [
+        {
+            "id": "wastelevelLink",
+            "label": "",
+            "description": "",
+            "target": "",
+            "icon": "",
+            "roles":[]
+        }
+    ],
+    "uis": [
+        {
+            "id": "wastelevelLink",
+            "label":"",
+            "description": "",
+            "roles": []
+        }
+    ],
+    "menuItems": [
+        {
+            "id": "wastelevelLink",
+            "title": "wastelevel"
+        }
+    ]
+}

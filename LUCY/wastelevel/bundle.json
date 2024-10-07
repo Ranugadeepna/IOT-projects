@@ -1,0 +1,24 @@
+{
+    "id": "866bb73c-a83b-4aac-9b46-029c6c0bf46b",
+    "author": "",
+    "widgets": [
+        {
+            "id": "wastelevel",
+            "name": "wastelevel",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        }
+    ],
+    "sidebarLinks": [
+        
+    ],
+    "uis": [
+       
+    ],
+    "menuItems": [
+        
+    ]
+}
