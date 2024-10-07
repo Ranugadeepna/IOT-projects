@@ -11,31 +11,31 @@ function closeNav() {
 }
 
 
-function updateDustbinStatus(id, capacity) {
-    const card = document.getElementById(id);
-    const visualLevel = card.querySelector('.visual-level');
-    const statusIndicator = card.querySelector('.status-indicator');
-    const capacityText = card.querySelector('.capacity');
-    const statusText = card.querySelector('.status-text');
+// function updateDustbinStatus(id, capacity) {
+//     const card = document.getElementById(id);
+//     const visualLevel = card.querySelector('.visual-level');
+//     const statusIndicator = card.querySelector('.status-indicator');
+//     const capacityText = card.querySelector('.capacity');
+//     const statusText = card.querySelector('.status-text');
 
-    // Update the visual level width
-    visualLevel.style.height = `${capacity}%`; // Set width based on capacity
+//     // Update the visual level width
+//     visualLevel.style.height = `${capacity}%`; // Set width based on capacity
 
-    // Update status based on capacity
-    if (capacity >= 75) {
-        statusIndicator.style.backgroundColor = 'red'; // Full
-        capacityText.textContent = `Capacity: ${capacity}% `;
-        statusText.textContent = ' Full';
-    } else if (capacity >= 50) {
-        statusIndicator.style.backgroundColor = 'orange'; // Half Full
-        capacityText.textContent = `Capacity: ${capacity}%`;
-        statusText.textContent = ' Half Full';
-    } else {
-        statusIndicator.style.backgroundColor = 'green'; // Not Full
-        capacityText.textContent = `Capacity: ${capacity}%`;
-        statusText.textContent = 'Not Full';
-    }
-}
+//     // Update status based on capacity
+//     if (capacity >= 75) {
+//         statusIndicator.style.backgroundColor = 'red'; // Full
+//         capacityText.textContent = `Capacity: ${capacity}% `;
+//         statusText.textContent = ' Full';
+//     } else if (capacity >= 50) {
+//         statusIndicator.style.backgroundColor = 'orange'; // Half Full
+//         capacityText.textContent = `Capacity: ${capacity}%`;
+//         statusText.textContent = ' Half Full';
+//     } else {
+//         statusIndicator.style.backgroundColor = 'green'; // Not Full
+//         capacityText.textContent = `Capacity: ${capacity}%`;
+//         statusText.textContent = 'Not Full';
+//     }
+// }
 
-// Call this function with the dustbin ID and desired capacity
-// updateDustbinStatus('dustbin-1', 60); // Example update
+// // Call this function with the dustbin ID and desired capacity
+// // updateDustbinStatus('dustbin-1', 60); // Example update

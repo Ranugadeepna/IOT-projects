@@ -1,0 +1,24 @@
+{
+    "id": "b24647dc-1fa8-4cd9-d522-381c05475746",
+    "author": "",
+    "widgets": [
+        {
+            "id": "wastewidget",
+            "name": "wastewidget",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        }
+    ],
+    "sidebarLinks": [
+        
+    ],
+    "uis": [
+       
+    ],
+    "menuItems": [
+        
+    ]
+}

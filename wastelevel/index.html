@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lstyles.css">
+    <!-- Remixicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+</head>
+<body>
+    <section class="bin">
+        <div class="bin-card" id="dustbin-1">
+            <div class="bin-data">
+                <p class="bin-text">Dustbin 1</p>
+                <h1 class="bin-percentage"></h1>
+                <p class="bin-status">
+                    Low <i class="ri-delete-bin-3-line"></i>
+                </p>
+            </div>
+
+            <div class="bin-pill">
+                <div class="bin-level">
+                    <div class="bin-liquid"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="lscript.js"></script>
+    <script>
+        updateDustbinStatus('dustbin-1', 40); // Pass bin id and level
+    </script>
+</body>
+</html>

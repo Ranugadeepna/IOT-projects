@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLTB Waste Management System</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lstyles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
 </head>
 <body>
     <header class="header">
@@ -24,7 +26,7 @@
         </div>
         <div class="sidebar-menu">
             <ul>
-                <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+                <li><a href="#" class="closebtn" onclick="closeNav()">&times;</a></li>
                 <li><a href="#home"><i class="bx bx-home"></i> Add Bins</a></li>
                 <li><a href="#about"><i class="bx bx-info-circle"></i> Dashboard</a></li>
             </ul>
@@ -35,74 +37,34 @@
         <span onclick="openNav()">&#9776; Menu</span>
     </div>
 
-    <section id="main" class="main">
+    <main id="main" class="main">
         <div class="home-content">
             <h1>Agraganya Waste Management System</h1>
             <h2>Dashboard</h2>
         </div>
 
-        <div id="dustbin-1" class="dustbin-card">
-            <div class="card-header">
-                <h3>Smart Dustbin #1</h3>
-            </div>
-            <div class="card-body">
-                <div class="visual-indicator">
-                    <div class="visual-level" id="level-dustbin-1" style="height: 0%;"></div> <!-- Initially 0% -->
+        <section class="bin">
+            <div class="bin-card" id="dustbin-1">
+                <div class="bin-data">
+                    <p class="bin-text">Dustbin 1</p>
+                    <h1 class="bin-percentage">40%</h1>
+                    <p class="bin-location">Location: Central Park</p>
+                    <p class="bin-status">
+                        Low <i class="ri-delete-bin-3-line"></i>
+                    </p>
                 </div>
-                <div class="dustbin-status">
-                    <span class="status-indicator"></span>
-                    <span class="status-text">Status</span>
+                <div class="bin-pill">
+                    <div class="bin-level">
+                        <div class="bin-liquid"></div>
+                    </div>
                 </div>
-                <p>Location: Central Park</p>
-                <p class="capacity">Capacity: 0% Full</p>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <div id="dustbin-2" class="dustbin-card">
-            <div class="card-header">
-                <h3>Smart Dustbin #2</h3>
-            </div>
-            <div class="card-body">
-                <div class="visual-indicator">
-                    <div class="visual-level" id="level-dustbin-1" style="height: 0%;"></div> <!-- Initially 0% -->
-                </div>
-                <div class="dustbin-status">
-                    <span class="status-indicator"></span>
-                    <span class="status-text">Status</span>
-                </div>
-                <p>Location: Central Park</p>
-                <p class="capacity">Capacity: 0% Full</p>
-            </div>
-        </div>
-
-        <div id="dustbin-3" class="dustbin-card">
-            <div class="card-header">
-                <h3>Smart Dustbin #3</h3>
-            </div>
-            <div class="card-body">
-                <div class="visual-indicator">
-                    <div class="visual-level" id="level-dustbin-1" style="height: 0%;"></div> <!-- Initially 0% -->
-                </div>
-                <div class="dustbin-status">
-                    <span class="status-indicator"></span>
-                    <span class="status-text"></span>
-                </div>
-                <p>Location: Central Park</p>
-                <p class="capacity">Capacity: 0% Full</p>
-            </div>
-        </div>
-        
-        
-        
-        <!-- Add more dustbin cards as needed -->
-        
-    </section>
-
-    <script src="script.js"></script>
+    <script src="lscript.js"></script>
     <script>
-        updateDustbinStatus('dustbin-1', 80);
-        updateDustbinStatus('dustbin-2', 10);
-        updateDustbinStatus('dustbin-3', 50);
+        updateDustbinStatus('dustbin-1', 60); // Pass bin id and level
     </script>
 </body>
 </html>
