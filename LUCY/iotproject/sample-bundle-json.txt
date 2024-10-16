@@ -1,0 +1,39 @@
+{
+    "id": "895cf443-d591-4e1e-b0b2-515d34a7f571",
+    "author": "",
+    "widgets": [
+        {
+            "id": "iotproject",
+            "name": "iotproject",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[]
+            "category":"",
+            "isTemplate": true/false // this will mark the widget as a template 
+        }
+    ],
+    "sidebarLinks": [
+        {
+            "id": "iotprojectLink",
+            "label": "",
+            "description": "",
+            "target": "",
+            "icon": "",
+            "roles":[]
+        }
+    ],
+    "uis": [
+        {
+            "id": "iotprojectLink",
+            "label":"",
+            "description": "",
+            "roles": []
+        }
+    ],
+    "menuItems": [
+        {
+            "id": "iotprojectLink",
+            "title": "iotproject"
+        }
+    ]
+}

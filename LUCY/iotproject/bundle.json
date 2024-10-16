@@ -1,0 +1,33 @@
+{
+    "id": "2648d2ed-3633-4fb3-dcf2-5cec24ba41dc",
+    "author": "",
+    "widgets": [
+        {
+            "id": "iotproject",
+            "name": "iotproject",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        },
+        {
+            "id": "dustbin",
+            "name": "dustbin",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        }
+    ],
+    "sidebarLinks": [
+        
+    ],
+    "uis": [
+       
+    ],
+    "menuItems": [
+        
+    ]
+}
