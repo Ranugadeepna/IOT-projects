@@ -14,7 +14,7 @@ export interface IWidgetProps {
     uiProps?: any
 }
 
-const WastelevelWidget: React.FunctionComponent<IWidgetProps> = (props) => {
+const WastelevelWidget: React.FunctionComponent<IWidgetProps> = () => {
     return (
         <>
         <WidgetWrapper>

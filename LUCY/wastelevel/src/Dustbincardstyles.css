@@ -39,7 +39,7 @@
 
 /*=============== BIN CONTAINER ===============*/
 .bin {
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +48,7 @@
 
 .bin-card {
     width: 100%;
-    max-width: 600px;
+    height: 100%;
     background-color: var(--container-color);
     padding: 2rem;
     display: grid;
