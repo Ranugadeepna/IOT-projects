@@ -18,6 +18,24 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Dustbincardstyles.css":
+/*!*************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Dustbincardstyles.css ***!
+  \*************************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap);"]);
+// Module
+exports.push([module.id, "/*=============== GOOGLE FONTS ===============*/\r\n\r\n/*=============== VARIABLES CSS ===============*/\r\n:root {\r\n  /*========== Colors ==========*/\r\n  --gradient-color-red: linear-gradient(90deg, \r\n                          hsl(7, 89%, 46%) 15%,\r\n                          hsl(11, 93%, 68%) 100%);\r\n  --gradient-color-orange: linear-gradient(90deg, \r\n                           hsl(22, 89%, 46%) 15%,\r\n                           hsl(54, 90%, 45%) 100%);\r\n  --gradient-color-yellow: linear-gradient(90deg, \r\n                           hsl(54, 89%, 46%) 15%,\r\n                           hsl(92, 90%, 45%) 100%);\r\n  --gradient-color-green: linear-gradient(90deg, \r\n                          hsl(92, 89%, 46%) 15%,\r\n                          hsl(92, 90%, 68%) 100%);\r\n  --text-color: #fff;\r\n  --body-color: hsl(0, 0%, 11%);\r\n  --container-color: hsl(0, 0%, 9%);\r\n\r\n  /*========== Font and typography ==========*/\r\n  --body-font: 'Rubik', sans-serif;\r\n\r\n  --biggest-font-size: 2.5rem;\r\n  --normal-font-size: .938rem;\r\n  --smaller-font-size: .75rem;\r\n}\r\n\r\n/* Responsive typography */\r\n@media screen and (min-width: 968px) {\r\n  :root {\r\n    --biggest-font-size: 2.75rem;\r\n    --normal-font-size: 1rem;\r\n    --smaller-font-size: .813rem;\r\n  }\r\n}\r\n\r\n/*=============== BIN CONTAINER ===============*/\r\n.bin {\r\n    height: 100vh;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 0 1.5rem;\r\n}\r\n\r\n.bin-card {\r\n    width: 100%;\r\n    max-width: 600px;\r\n    background-color: var(--container-color);\r\n    padding: 2rem;\r\n    display: grid;\r\n    grid-template-columns: repeat(2, 1fr);\r\n    gap: 2rem;\r\n    align-items: center;\r\n    border-radius: 6px;\r\n    position: relative;\r\n}\r\n\r\n/*=============== BIN TEXT ===============*/\r\n.bin-text {\r\n    color: var(--text-color);\r\n    font-size: var(--normal-font-size);\r\n    margin-bottom: .5rem;\r\n}\r\n\r\n.bin-percentage {\r\n    font-size: var(--biggest-font-size);\r\n    color: var(--text-color);\r\n}\r\n\r\n.bin-status {\r\n    display: flex;\r\n    align-items: center;\r\n    column-gap: .5rem;\r\n    font-size: var(--smaller-font-size);\r\n    margin-top: 1rem;\r\n}\r\n\r\n.bin-status i {\r\n    font-size: 1.25rem;\r\n}\r\n\r\n/*=============== BIN PILL STYLES ===============*/\r\n.bin-pill {\r\n    position: relative;\r\n    width: 75px;\r\n    height: 180px;\r\n    background-color: var(--container-color);\r\n    box-shadow: inset 20px 0 48px hsl(0, 0%, 16%);\r\n    border-radius: 3rem;\r\n    justify-self: flex-end;\r\n}\r\n\r\n.bin-level {\r\n    position: absolute;\r\n    inset: 2px;\r\n    border-radius: 3rem;\r\n    overflow: hidden;\r\n}\r\n\r\n.bin-liquid {\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    height: 100px; /* For better visibility of the gradient */\r\n    background: var(--gradient-color-red);\r\n    box-shadow: inset -10px 0 12px hsla(0, 0%, 0%, .1), \r\n                inset 12px 0 12px hsla(0, 0%, 0%, .15);\r\n    transition: 0.3s ease-in-out;\r\n}\r\n\r\n.bin-liquid::after {\r\n    content: '';\r\n    position: absolute;\r\n    height: 8px;\r\n    background: var(--gradient-color-red);\r\n    box-shadow: inset 0px -3px 6px hsla(0, 0%, 0%, .2);\r\n    left: 0;\r\n    right: 0;\r\n    margin: 0 auto;\r\n    top: -4px;\r\n    border-radius: 50%;\r\n}\r\n\r\n/*=============== COLOR STATES ===============*/\r\n.green-color {\r\n    background: var(--gradient-color-green);\r\n}\r\n\r\n.animated-green {\r\n    background: var(--gradient-color-green);\r\n    animation: animated-charging-battery 1.2s infinite alternate;\r\n}\r\n\r\n.animated-red {\r\n    background: var(--gradient-color-red);\r\n    animation: animated-low-battery 1.2s infinite alternate;\r\n}\r\n\r\n.animated-green,\r\n.animated-red,\r\n.green-color {\r\n    -webkit-background-clip: text;\r\n    color: transparent;\r\n}\r\n\r\n/* Liquid battery with gradient color */\r\n.gradient-color-red,\r\n.gradient-color-red::after {\r\n    background: var(--gradient-color-red);\r\n}\r\n\r\n.gradient-color-orange,\r\n.gradient-color-orange::after {\r\n    background: var(--gradient-color-orange);\r\n}\r\n\r\n.gradient-color-yellow,\r\n.gradient-color-yellow::after {\r\n    background: var(--gradient-color-yellow);\r\n}\r\n\r\n.gradient-color-green,\r\n.gradient-color-green::after {\r\n    background: var(--gradient-color-green);\r\n}\r\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -429,6 +447,34 @@ module.exports = content.locals || {};
 
 /***/ }),
 
+/***/ "./src/Dustbincardstyles.css":
+/*!***********************************!*\
+  !*** ./src/Dustbincardstyles.css ***!
+  \***********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var api = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./Dustbincardstyles.css */ "./node_modules/css-loader/dist/cjs.js!./src/Dustbincardstyles.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.id, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
 /***/ "./src/Dustbincard.tsx":
 /*!*****************************!*\
   !*** ./src/Dustbincard.tsx ***!
@@ -462,7 +508,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "react"));
-__webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module './Dustbincard.css'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())); // Import your CSS file for styles
+__webpack_require__(/*! ./Dustbincardstyles.css */ "./src/Dustbincardstyles.css"); // Import your CSS file for styles
 const Dustbincard = ({ id, level }) => {
     const [binLevel, setBinLevel] = (0, react_1.useState)(level);
     const [binStatus, setBinStatus] = (0, react_1.useState)('');
@@ -554,11 +600,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "react"));
 const uxp_1 = __webpack_require__(/*! ./uxp */ "./src/uxp.ts");
+const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
 const Dustbincard_1 = __importDefault(__webpack_require__(/*! ./Dustbincard */ "./src/Dustbincard.tsx"));
 __webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
 const WastelevelWidget = (props) => {
     return (React.createElement(React.Fragment, null,
-        React.createElement(Dustbincard_1.default, { id: "dustbin-1", level: 40 })));
+        React.createElement(components_1.WidgetWrapper, null,
+            React.createElement(Dustbincard_1.default, { id: "dustbin-1", level: 40 }))));
 };
 /**
  * Register as a Widget
@@ -826,6 +874,17 @@ exports.registerCustomWidgetTemplate = registerCustomWidgetTemplate;
 
 "use strict";
 module.exports = React;
+
+/***/ }),
+
+/***/ "uxp/components":
+/*!********************************!*\
+  !*** external "UXPComponents" ***!
+  \********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = UXPComponents;
 
 /***/ }),
 

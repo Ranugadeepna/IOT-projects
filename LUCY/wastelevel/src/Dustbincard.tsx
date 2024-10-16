@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Dustbincard.css'; // Import your CSS file for styles
+import './Dustbincardstyles.css'; // Import your CSS file for styles
 
 // Define the props type
 interface BinCardProps {

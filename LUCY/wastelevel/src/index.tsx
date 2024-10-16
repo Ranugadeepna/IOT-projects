@@ -17,8 +17,14 @@ export interface IWidgetProps {
 const WastelevelWidget: React.FunctionComponent<IWidgetProps> = (props) => {
     return (
         <>
+        <WidgetWrapper>
         <Dustbincard id="dustbin-1" level={40} />
-        {/* You can add more BinCard components with different levels here */}
+            
+        </WidgetWrapper>
+
+    
+       
+       
     </>
     )
 };
