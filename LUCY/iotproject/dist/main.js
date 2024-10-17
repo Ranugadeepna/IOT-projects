@@ -27,9 +27,27 @@ module.exports = exports;
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap);"]);
+exports.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap);"]);
+exports.push([module.id, "@import url(https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css);"]);
 // Module
-exports.push([module.id, "/*=============== GOOGLE FONTS ===============*/\r\n\r\n/*=============== VARIABLES CSS ===============*/\r\n:root {\r\n  /*========== Colors ==========*/\r\n  --gradient-color-red: linear-gradient(90deg, \r\n                          hsl(7, 89%, 46%) 15%,\r\n                          hsl(11, 93%, 68%) 100%);\r\n  --gradient-color-orange: linear-gradient(90deg, \r\n                           hsl(22, 89%, 46%) 15%,\r\n                           hsl(54, 90%, 45%) 100%);\r\n  --gradient-color-yellow: linear-gradient(90deg, \r\n                           hsl(54, 89%, 46%) 15%,\r\n                           hsl(92, 90%, 45%) 100%);\r\n  --gradient-color-green: linear-gradient(90deg, \r\n                          hsl(92, 89%, 46%) 15%,\r\n                          hsl(92, 90%, 68%) 100%);\r\n  --text-color: #fff;\r\n  --body-color: hsl(0, 0%, 11%);\r\n  --container-color: hsl(0, 0%, 9%);\r\n\r\n  /*========== Font and typography ==========*/\r\n  --body-font: 'Rubik', sans-serif;\r\n\r\n  --biggest-font-size: 2.5rem;\r\n  --normal-font-size: .938rem;\r\n  --smaller-font-size: .75rem;\r\n}\r\n\r\n/* Responsive typography */\r\n@media screen and (min-width: 968px) {\r\n  :root {\r\n    --biggest-font-size: 2.75rem;\r\n    --normal-font-size: 1rem;\r\n    --smaller-font-size: .813rem;\r\n  }\r\n}\r\n\r\n/*=============== BIN CONTAINER ===============*/\r\n.bin {\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 0 1.5rem;\r\n}\r\n\r\n.bin-card {\r\n    width: 100%;\r\n    /* max-width: 600px; */\r\n    background-color: var(--container-color);\r\n    padding: 2rem;\r\n    display: grid;\r\n    grid-template-columns: repeat(2, 1fr);\r\n    gap: 2rem;\r\n    align-items: center;\r\n    border-radius: 6px;\r\n    position: relative;\r\n}\r\n\r\n/*=============== BIN TEXT ===============*/\r\n.bin-text {\r\n    color: var(--text-color);\r\n    font-size: var(--normal-font-size);\r\n    margin-bottom: .5rem;\r\n}\r\n\r\n.bin-percentage {\r\n    font-size: var(--biggest-font-size);\r\n    color: var(--text-color);\r\n}\r\n\r\n.bin-status {\r\n    display: flex;\r\n    align-items: center;\r\n    column-gap: .5rem;\r\n    font-size: var(--smaller-font-size);\r\n    margin-top: 1rem;\r\n}\r\n\r\n.bin-status i {\r\n    font-size: 1.25rem;\r\n}\r\n\r\n/*=============== BIN PILL STYLES ===============*/\r\n.bin-pill {\r\n    position: relative;\r\n    width: 75px;\r\n    height: 180px;\r\n    background-color: var(--container-color);\r\n    box-shadow: inset 20px 0 48px hsl(0, 0%, 16%);\r\n    border-radius: 3rem;\r\n    justify-self: flex-end;\r\n}\r\n\r\n.bin-level {\r\n    position: absolute;\r\n    inset: 2px;\r\n    border-radius: 3rem;\r\n    overflow: hidden;\r\n}\r\n\r\n.bin-liquid {\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    height: 100px; /* For better visibility of the gradient */\r\n    background: var(--gradient-color-red);\r\n    box-shadow: inset -10px 0 12px hsla(0, 0%, 0%, .1), \r\n                inset 12px 0 12px hsla(0, 0%, 0%, .15);\r\n    transition: 0.3s ease-in-out;\r\n}\r\n\r\n.bin-liquid::after {\r\n    content: '';\r\n    position: absolute;\r\n    height: 8px;\r\n    background: var(--gradient-color-red);\r\n    box-shadow: inset 0px -3px 6px hsla(0, 0%, 0%, .2);\r\n    left: 0;\r\n    right: 0;\r\n    margin: 0 auto;\r\n    top: -4px;\r\n    border-radius: 50%;\r\n}\r\n\r\n/*=============== COLOR STATES ===============*/\r\n.green-color {\r\n    background: var(--gradient-color-green);\r\n}\r\n\r\n.animated-green {\r\n    background: var(--gradient-color-green);\r\n    animation: animated-charging-battery 1.2s infinite alternate;\r\n}\r\n\r\n.animated-red {\r\n    background: var(--gradient-color-red);\r\n    animation: animated-low-battery 1.2s infinite alternate;\r\n}\r\n\r\n.animated-green,\r\n.animated-red,\r\n.green-color {\r\n    -webkit-background-clip: text;\r\n    color: transparent;\r\n}\r\n\r\n/* Liquid battery with gradient color */\r\n.gradient-color-red,\r\n.gradient-color-red::after {\r\n    background: var(--gradient-color-red);\r\n}\r\n\r\n.gradient-color-orange,\r\n.gradient-color-orange::after {\r\n    background: var(--gradient-color-orange);\r\n}\r\n\r\n.gradient-color-yellow,\r\n.gradient-color-yellow::after {\r\n    background: var(--gradient-color-yellow);\r\n}\r\n\r\n.gradient-color-green,\r\n.gradient-color-green::after {\r\n    background: var(--gradient-color-green);\r\n}\r\n", ""]);
+exports.push([module.id, "/*=============== GOOGLE FONTS ===============*/\r\n\r\n\r\n/*=============== CSS VARIABLES ===============*/\r\n:root {\r\n  /*========== Color Palette ==========*/\r\n  --primary-color: #3498db;\r\n  --secondary-color: #2ecc71;\r\n  --warning-color: #f39c12;\r\n  --danger-color: #e74c3c;\r\n  --background-color: #f4f6f9;\r\n  --card-color: #ffffff;\r\n  --text-color-dark: #333;\r\n  --text-color-light: #fff;\r\n  --shadow-color: rgba(0, 0, 0, 0.1);\r\n  --highlight-color: rgba(255, 255, 255, 0.2); /* Soft light highlight */\r\n\r\n  /*========== Typography ==========*/\r\n  --font-primary: 'Poppins', sans-serif;\r\n  --font-size-large: 4.5rem;\r\n  --font-size-medium: 1.5rem;\r\n  --font-size-small: 1.5rem;\r\n  --font-weight-bold: 700;\r\n  --font-weight-semi-bold: 600;\r\n  --font-weight-regular: 400;\r\n\r\n  /*========== Spacing ==========*/\r\n  --spacing-small: 8px;\r\n  --spacing-medium: 16px;\r\n  --spacing-large: 32px;\r\n\r\n  /*========== Border Radius ==========*/\r\n  --border-radius: 16px;\r\n}\r\n\r\n/*=============== GLOBAL STYLES ===============*/\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  font-family: var(--font-primary);\r\n  background-color: var(--background-color);\r\n  color: var(--text-color-dark);\r\n  padding: var(--spacing-large);\r\n}\r\n\r\nh1, h2, h3, h4, h5, h6 {\r\n  font-weight: var(--font-weight-bold);\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n}\r\n\r\n/*=============== CARD CONTAINER ===============*/\r\n.bin-card {\r\n  background-color: var(--card-color);\r\n  border-radius: var(--border-radius);\r\n  padding: var(--spacing-large);\r\n  box-shadow: 0 4px 20px var(--shadow-color);\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  position: relative;\r\n  transition: all 0.3s ease;\r\n  overflow: hidden;\r\n}\r\n\r\n/*=============== TEXT STYLES ===============*/\r\n.bin-text {\r\n  font-size: var(--font-size-medium);\r\n  font-weight: var(--font-weight-regular);\r\n  margin-bottom: var(--spacing-small);\r\n  color: var(--text-color-dark);\r\n}\r\n\r\n.bin-percentage {\r\n  font-size: var(--font-size-large);\r\n  font-weight: var(--font-weight-bold);\r\n  color: var(--primary-color);\r\n}\r\n\r\n.bin-status {\r\n  display: flex;\r\n  align-items: center;\r\n  gap: var(--spacing-small);\r\n  font-size: var(--font-size-small);\r\n  margin-top: var(--spacing-medium);\r\n  color: var(--text-color-dark);\r\n}\r\n\r\n.bin-location {\r\n  margin-top: var(--spacing-small);\r\n  font-size: var(--font-size-small);\r\n  color: var(--secondary-color);\r\n  font-weight: 800;\r\n}\r\n\r\n/*=============== PILL STYLES ===============*/\r\n.bin-pill {\r\n  position: relative;\r\n  width: 100px;\r\n  height: 220px;\r\n  background-color: var(--background-color);\r\n  border-radius: 50px; /* Keep the pill shape intact */\r\n  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);\r\n  overflow: hidden;\r\n  transition: all 0.3s ease;\r\n  border: 2px solid rgba(0, 0, 0, 0.05);\r\n}\r\n\r\n.bin-level {\r\n  position: absolute;\r\n  inset: 4px;\r\n  border-radius: 50px;\r\n  overflow: hidden;\r\n}\r\n/* Update your CSS file */\r\n.bin-status i {\r\n    font-size: 1.25rem;\r\n    transition: color 0.3s ease; /* Add transition for smoother color change */\r\n}\r\n\r\n/* Specific colors for each state */\r\n.animated-red {\r\n    color: var(--danger-color); /* Ensure this variable is defined */\r\n}\r\n\r\n.animated-green {\r\n    color: var(--secondary-color); /* Ensure this variable is defined */\r\n}\r\n\r\n.animated-orange {\r\n    color: var(--warning-color); /* Define for the low state */\r\n}\r\n\r\n\r\n/* Updated bin liquid styles for better visibility and animation */\r\n.bin-liquid {\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  height: 0; /* Set initial height to 0, will update dynamically */\r\n  background: var(--secondary-color);\r\n  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);\r\n  transition: height 0.5s ease, background-color 0.5s ease;\r\n}\r\n\r\n/*=============== COLOR STATES ===============*/\r\n.gradient-color-green {\r\n  background: var(--secondary-color);\r\n}\r\n\r\n.gradient-color-orange {\r\n  background: var(--warning-color);\r\n}\r\n\r\n.gradient-color-red {\r\n  background: var(--danger-color);\r\n}\r\n\r\n/*=============== KEYFRAMES ===============*/\r\n@keyframes pulse-orange {\r\n  0% { box-shadow: 0 0 15px var(--warning-color); }\r\n  100% { box-shadow: 0 0 30px var(--warning-color); }\r\n}\r\n\r\n@keyframes pulse-red {\r\n  0% { box-shadow: 0 0 15px var(--danger-color); }\r\n  100% { box-shadow: 0 0 30px var(--danger-color); }\r\n}\r\n\r\n/*=============== RESPONSIVE STYLES =============== */\r\n@media screen and (min-width: 768px) {\r\n  :root {\r\n    --font-size-large: 5rem;\r\n    --font-size-medium: 1.75rem;\r\n  }\r\n}\r\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/sidebarStyles.css":
+/*!*********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/sidebarStyles.css ***!
+  \*********************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, "/* Super-styled sidebar */\r\n.sidebar {\r\n    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient background */\r\n    height: 100%;\r\n    width: 100%;\r\n    color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    box-sizing: border-box;\r\n    border-radius: 20px;\r\n    padding: 25px;\r\n    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for elevated effect */\r\n    font-family: 'Poppins', sans-serif; /* Modern font */\r\n    transition: transform 0.3s ease;\r\n    resize: none;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.sidebar:hover {\r\n    transform: scale(1.02); /* Slight zoom on hover */\r\n}\r\n\r\n.sidebarnav {\r\n    list-style-type: none;\r\n    padding: 0;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 20px; /* More space between the items */\r\n    align-items: center;\r\n    \r\n}\r\n/* Fixed size for each li */\r\n.sidebarnav li {\r\n    width: 200px; /* Set a specific width */\r\n    height: 50px; /* Set a specific height */\r\n    display: flex; /* Align content inside the li */\r\n    justify-content: center; /* Center horizontally */\r\n    align-items: center; /* Center vertically */\r\n    background-color: rgba(255, 255, 255, 0.1); /* Background color for the box */\r\n    border-radius: 10px; /* Rounded corners */\r\n    margin-bottom: 0px; /* Space between items */\r\n}\r\n\r\n/* Style the a inside the li */\r\n.sidebarnav a {\r\n    text-decoration: none;\r\n    color: white;\r\n    font-size: 18px;\r\n    padding: 5px;\r\n    width: 100%; /* Fill the entire li width */\r\n    height: 100%; /* Fill the entire li height */\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 10px;\r\n    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n.sidebarnav a:hover {\r\n    background-color: #00b4ff; /* Bright blue on hover */\r\n    color: white;\r\n}\r\n\r\n.sidebar .logo{\r\n    height: 100px;\r\n    width: 100px;\r\n    border: cicle;\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -475,6 +493,34 @@ module.exports = content.locals || {};
 
 /***/ }),
 
+/***/ "./src/sidebarStyles.css":
+/*!*******************************!*\
+  !*** ./src/sidebarStyles.css ***!
+  \*******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var api = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./sidebarStyles.css */ "./node_modules/css-loader/dist/cjs.js!./src/sidebarStyles.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.id, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
 /***/ "./src/index.tsx":
 /*!***********************!*\
   !*** ./src/index.tsx ***!
@@ -519,14 +565,16 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "react"));
 const uxp_1 = __webpack_require__(/*! ./uxp */ "./src/uxp.ts");
 const react_1 = __webpack_require__(/*! react */ "react");
+const recharts_1 = __webpack_require__(/*! recharts */ "recharts");
 __webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
 __webpack_require__(/*! ./Dustbincardstyles.css */ "./src/Dustbincardstyles.css");
+__webpack_require__(/*! ./sidebarStyles.css */ "./src/sidebarStyles.css");
 const DustbinWidget = (props) => {
-    const [binLevel, setBinLevel] = (0, react_1.useState)(10);
+    const [binLevel, setBinLevel] = (0, react_1.useState)(100);
     const [binStatus, setBinStatus] = (0, react_1.useState)('');
     const [binLiquidColor, setBinLiquidColor] = (0, react_1.useState)('gradient-color-green');
     const [binPercentage, setBinPercentage] = (0, react_1.useState)('0%');
-    const [dustbinId, setDustbinId] = (0, react_1.useState)(props.id);
+    const [dustbinId, setDustbinId] = (0, react_1.useState)("Dustbin name");
     const [dustbinData, setDustbinData] = (0, react_1.useState)(null); // To hold the fetched data
     const [binLocation, setBinLocation] = (0, react_1.useState)('location');
     (0, react_1.useEffect)(() => {
@@ -561,12 +609,16 @@ const DustbinWidget = (props) => {
             setBinStatus(`Full bin <i class="ri-delete-bin-3-line animated-red"></i>`);
             setBinLiquidColor('gradient-color-red');
         }
-        else if (level > 35 && level <= 60) {
-            setBinStatus(`Low bin <i class="ri-delete-bin-3-line animated-green"></i>`);
+        else if (level > 60) { // Updated condition for 90% case
+            setBinStatus(`Almost Full <i class="ri-delete-bin-3-line animated-orange"></i>`);
+            setBinLiquidColor('gradient-color-red');
+        }
+        else if (level > 35) {
+            setBinStatus(`Low bin <i class="ri-delete-bin-3-line animated-yellow"></i>`);
             setBinLiquidColor('gradient-color-orange');
         }
-        else if (level <= 35) {
-            setBinStatus(`Very Low <i class="ri-delete-bin-3-line green-color"></i>`);
+        else {
+            setBinStatus(`Very Low <i class="ri-delete-bin-3-line animated-green"></i>`);
             setBinLiquidColor('gradient-color-green');
         }
     };
@@ -576,10 +628,81 @@ const DustbinWidget = (props) => {
                 React.createElement("p", { className: "bin-text" }, dustbinId),
                 React.createElement("h1", { className: "bin-percentage" }, binPercentage),
                 React.createElement("p", { className: "bin-status", dangerouslySetInnerHTML: { __html: binStatus } }),
-                React.createElement("p", { className: "bin-loaction" }, binLocation)),
+                React.createElement("p", { className: "bin-location" }, binLocation)),
             React.createElement("div", { className: "bin-pill" },
                 React.createElement("div", { className: "bin-level" },
                     React.createElement("div", { className: `bin-liquid ${binLiquidColor}`, style: { height: binPercentage } }))))));
+};
+//side bar widget 
+const SidebarWidget = (props) => {
+    return (React.createElement("div", { className: "sidebar" },
+        React.createElement("img", { src: "Red.jpg", alt: "logo", className: "logo" }),
+        React.createElement("ul", { className: "sidebarnav" },
+            React.createElement("li", null,
+                React.createElement("a", { href: "https://www.google.com/" }, "BINS")),
+            React.createElement("li", null,
+                React.createElement("a", { href: "#" }, "CATEGORIES")),
+            React.createElement("li", null,
+                React.createElement("a", { href: "#" }, "SETTINGS")))));
+};
+const StackedAreaChartWidget = (props) => {
+    const data = [
+        {
+            name: 'Page A',
+            uv: 4000,
+            pv: 2400,
+            amt: 2400,
+        },
+        {
+            name: 'Page B',
+            uv: 3000,
+            pv: 1398,
+            amt: 2210,
+        },
+        {
+            name: 'Page C',
+            uv: 2000,
+            pv: 12800,
+            amt: 2290,
+        },
+        {
+            name: 'Page D',
+            uv: 2780,
+            pv: 3908,
+            amt: 2000,
+        },
+        {
+            name: 'Page E',
+            uv: 1890,
+            pv: 4800,
+            amt: 2181,
+        },
+        {
+            name: 'Page F',
+            uv: 2390,
+            pv: 3800,
+            amt: 2500,
+        },
+        {
+            name: 'Page G',
+            uv: 3490,
+            pv: 4300,
+            amt: 2100,
+        },
+    ];
+    return (React.createElement(recharts_1.AreaChart, { width: 500, height: 400, data: data, margin: {
+            top: 10,
+            right: 30,
+            left: 0,
+            bottom: 0,
+        } },
+        React.createElement(recharts_1.CartesianGrid, { strokeDasharray: "3 3" }),
+        React.createElement(recharts_1.XAxis, { dataKey: "name" }),
+        React.createElement(recharts_1.YAxis, null),
+        React.createElement(recharts_1.Tooltip, null),
+        React.createElement(recharts_1.Area, { type: "monotone", dataKey: "uv", stackId: "1", stroke: "#8884d8", fill: "#8884d8" }),
+        React.createElement(recharts_1.Area, { type: "monotone", dataKey: "pv", stackId: "1", stroke: "#82ca9d", fill: "#82ca9d" }),
+        React.createElement(recharts_1.Area, { type: "monotone", dataKey: "amt", stackId: "1", stroke: "#ffc658", fill: "#ffc658" })));
 };
 /**
  * Register as a Widget
@@ -599,6 +722,30 @@ const DustbinWidget = (props) => {
 (0, uxp_1.registerWidget)({
     id: "dustbin",
     widget: DustbinWidget,
+    configs: {
+        layout: {
+        // w: 12,
+        // h: 12,
+        // minH: 12,
+        // minW: 12
+        }
+    }
+});
+(0, uxp_1.registerWidget)({
+    id: "sidebar",
+    widget: SidebarWidget,
+    configs: {
+        layout: {
+        // w: 12,
+        // h: 12,
+        // minH: 12,
+        // minW: 12
+        }
+    }
+});
+(0, uxp_1.registerWidget)({
+    id: "srchart",
+    widget: StackedAreaChartWidget,
     configs: {
         layout: {
         // w: 12,
@@ -862,6 +1009,17 @@ module.exports = React;
 
 /***/ }),
 
+/***/ "recharts":
+/*!***************************!*\
+  !*** external "Recharts" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = Recharts;
+
+/***/ }),
+
 /***/ "./bundle.json":
 /*!*********************!*\
   !*** ./bundle.json ***!
@@ -869,7 +1027,7 @@ module.exports = React;
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"id":"2648d2ed-3633-4fb3-dcf2-5cec24ba41dc","author":"","widgets":[{"id":"iotproject","name":"iotproject","description":"A sample widget","icon":"","tags":[],"category":"","isTemplate":false},{"id":"dustbin","name":"dustbin","description":"A sample widget","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
+module.exports = /*#__PURE__*/JSON.parse('{"id":"2648d2ed-3633-4fb3-dcf2-5cec24ba41dc","author":"","widgets":[{"id":"iotproject","name":"iotproject","description":"A sample widget","icon":"","tags":[],"category":"","isTemplate":false},{"id":"dustbin","name":"dustbin","description":"A sample widget","icon":"","tags":[],"category":"","isTemplate":false},{"id":"sidebar","name":"sidebar","description":"A  sidebar widget","icon":"","tags":[],"category":"","isTemplate":false},{"id":"srchart","name":"srchart","description":"Stacked are chart widget","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
 
 /***/ }),
 

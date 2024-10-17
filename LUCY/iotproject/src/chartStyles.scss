@@ -1,0 +1,114 @@
+/* Chart Container Styles */
+.chart-container {
+    width: 100%; /* Responsive width */
+    max-width: 600px; /* Max width for larger screens */
+    margin: 20px auto; /* Center the chart */
+    background-color: #ffffff; /* White background for the chart */
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1); /* Deep shadow for elevation */
+    padding: 20px; /* Padding around the chart */
+    transition: transform 0.3s; /* Smooth transform on hover */
+}
+
+.chart-container:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+/* Area Chart Styles */
+.recharts-surface {
+    font-family: 'Poppins', sans-serif; /* Change the font */
+}
+
+.recharts-tooltip {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent tooltip background */
+    border-radius: 8px; /* Rounded tooltip */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Tooltip shadow */
+    padding: 10px; /* Padding inside the tooltip */
+    border: 1px solid #dcdcdc; /* Border for tooltip */
+}
+
+.recharts-tooltip-label {
+    font-weight: bold; /* Bold for label */
+    color: #333; /* Dark color for visibility */
+}
+
+.recharts-tooltip-item {
+    margin: 4px 0; /* Space between items */
+}
+
+/* Axes Styles */
+.recharts-xAxis, .recharts-yAxis {
+    font-size: 14px; /* Adjust font size */
+    font-weight: 600; /* Semi-bold text */
+    color: #555; /* Darker color for axis text */
+}
+
+.recharts-cartesian-axis-line {
+    stroke: #ddd; /* Light line for axes */
+}
+
+/* Area Styles with Gradients */
+.recharts-area {
+    fill: url(#colorUv); /* Gradient fill */
+    transition: fill 0.3s ease; /* Smooth transition for fill colors */
+}
+
+.recharts-area:hover {
+    fill-opacity: 0.8; /* Slight transparency on hover */
+}
+
+/* Adding hover effects for areas */
+.recharts-area {
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1)); /* Shadow for area */
+}
+
+/* Legend Styles */
+.recharts-legend-wrapper {
+    margin-top: 10px; /* Space above the legend */
+}
+
+.recharts-legend-item {
+    font-size: 14px; /* Font size for legend */
+    margin-right: 20px; /* Space between legend items */
+}
+
+.recharts-legend-item span {
+    margin-right: 5px; /* Space between color box and text */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .chart-container {
+        width: 95%; /* Take up more space on smaller screens */
+    }
+}
+
+/* SVG Gradients */
+.recharts-surface {
+    position: relative; /* Ensure the surface is positioned for gradients */
+}
+
+.recharts-area {
+    fill: none; /* Remove default fill */
+}
+
+.recharts-area rect {
+    fill: url(#colorUv);
+}
+
+/* Define gradient in the SVG */
+svg {
+    width: 100%; /* Full width for SVG */
+}
+
+svg defs {
+    display: none; /* Hide default defs */
+}
+
+svg #colorUv {
+    stop-color: #4ca1af; /* Start color */
+}
+
+svg #colorUv {
+    stop-color: #c4e0e5; /* End color */
+}

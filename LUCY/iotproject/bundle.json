@@ -19,6 +19,24 @@
             "tags":[],
             "category":"",
             "isTemplate": false
+        },
+        {
+            "id": "sidebar",
+            "name": "sidebar",
+            "description": "A  sidebar widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        },
+        {
+            "id": "srchart",
+            "name": "srchart",
+            "description": "Stacked are chart widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
         }
     ],
     "sidebarLinks": [

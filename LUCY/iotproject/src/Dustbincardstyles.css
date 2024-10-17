@@ -1,170 +1,185 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css');
 
-/*=============== VARIABLES CSS ===============*/
+
+/*=============== CSS VARIABLES ===============*/
 :root {
-  /*========== Colors ==========*/
-  --gradient-color-red: linear-gradient(90deg, 
-                          hsl(7, 89%, 46%) 15%,
-                          hsl(11, 93%, 68%) 100%);
-  --gradient-color-orange: linear-gradient(90deg, 
-                           hsl(22, 89%, 46%) 15%,
-                           hsl(54, 90%, 45%) 100%);
-  --gradient-color-yellow: linear-gradient(90deg, 
-                           hsl(54, 89%, 46%) 15%,
-                           hsl(92, 90%, 45%) 100%);
-  --gradient-color-green: linear-gradient(90deg, 
-                          hsl(92, 89%, 46%) 15%,
-                          hsl(92, 90%, 68%) 100%);
-  --text-color: #fff;
-  --body-color: hsl(0, 0%, 11%);
-  --container-color: hsl(0, 0%, 9%);
+  /*========== Color Palette ==========*/
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --background-color: #f4f6f9;
+  --card-color: #ffffff;
+  --text-color-dark: #333;
+  --text-color-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --highlight-color: rgba(255, 255, 255, 0.2); /* Soft light highlight */
 
-  /*========== Font and typography ==========*/
-  --body-font: 'Rubik', sans-serif;
+  /*========== Typography ==========*/
+  --font-primary: 'Poppins', sans-serif;
+  --font-size-large: 4.5rem;
+  --font-size-medium: 1.5rem;
+  --font-size-small: 1.5rem;
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-regular: 400;
 
-  --biggest-font-size: 2.5rem;
-  --normal-font-size: .938rem;
-  --smaller-font-size: .75rem;
+  /*========== Spacing ==========*/
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 32px;
+
+  /*========== Border Radius ==========*/
+  --border-radius: 16px;
 }
 
-/* Responsive typography */
-@media screen and (min-width: 968px) {
-  :root {
-    --biggest-font-size: 2.75rem;
-    --normal-font-size: 1rem;
-    --smaller-font-size: .813rem;
-  }
+/*=============== GLOBAL STYLES ===============*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/*=============== BIN CONTAINER ===============*/
-.bin {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 1.5rem;
+body {
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: var(--text-color-dark);
+  padding: var(--spacing-large);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== CARD CONTAINER ===============*/
 .bin-card {
-    width: 100%;
-    /* max-width: 600px; */
-    background-color: var(--container-color);
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    align-items: center;
-    border-radius: 6px;
-    position: relative;
+  background-color: var(--card-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-large);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-/*=============== BIN TEXT ===============*/
+/*=============== TEXT STYLES ===============*/
 .bin-text {
-    color: var(--text-color);
-    font-size: var(--normal-font-size);
-    margin-bottom: .5rem;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  margin-bottom: var(--spacing-small);
+  color: var(--text-color-dark);
 }
 
 .bin-percentage {
-    font-size: var(--biggest-font-size);
-    color: var(--text-color);
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
 }
 
 .bin-status {
-    display: flex;
-    align-items: center;
-    column-gap: .5rem;
-    font-size: var(--smaller-font-size);
-    margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  font-size: var(--font-size-small);
+  margin-top: var(--spacing-medium);
+  color: var(--text-color-dark);
 }
 
-.bin-status i {
-    font-size: 1.25rem;
+.bin-location {
+  margin-top: var(--spacing-small);
+  font-size: var(--font-size-small);
+  color: var(--secondary-color);
+  font-weight: 800;
 }
 
-/*=============== BIN PILL STYLES ===============*/
+/*=============== PILL STYLES ===============*/
 .bin-pill {
-    position: relative;
-    width: 75px;
-    height: 180px;
-    background-color: var(--container-color);
-    box-shadow: inset 20px 0 48px hsl(0, 0%, 16%);
-    border-radius: 3rem;
-    justify-self: flex-end;
+  position: relative;
+  width: 100px;
+  height: 220px;
+  background-color: var(--background-color);
+  border-radius: 50px; /* Keep the pill shape intact */
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(0, 0, 0, 0.05);
 }
 
 .bin-level {
-    position: absolute;
-    inset: 2px;
-    border-radius: 3rem;
-    overflow: hidden;
+  position: absolute;
+  inset: 4px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+/* Update your CSS file */
+.bin-status i {
+    font-size: 1.25rem;
+    transition: color 0.3s ease; /* Add transition for smoother color change */
 }
 
-.bin-liquid {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px; /* For better visibility of the gradient */
-    background: var(--gradient-color-red);
-    box-shadow: inset -10px 0 12px hsla(0, 0%, 0%, .1), 
-                inset 12px 0 12px hsla(0, 0%, 0%, .15);
-    transition: 0.3s ease-in-out;
-}
-
-.bin-liquid::after {
-    content: '';
-    position: absolute;
-    height: 8px;
-    background: var(--gradient-color-red);
-    box-shadow: inset 0px -3px 6px hsla(0, 0%, 0%, .2);
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    top: -4px;
-    border-radius: 50%;
-}
-
-/*=============== COLOR STATES ===============*/
-.green-color {
-    background: var(--gradient-color-green);
+/* Specific colors for each state */
+.animated-red {
+    color: var(--danger-color); /* Ensure this variable is defined */
 }
 
 .animated-green {
-    background: var(--gradient-color-green);
-    animation: animated-charging-battery 1.2s infinite alternate;
+    color: var(--secondary-color); /* Ensure this variable is defined */
 }
 
-.animated-red {
-    background: var(--gradient-color-red);
-    animation: animated-low-battery 1.2s infinite alternate;
+.animated-orange {
+    color: var(--warning-color); /* Define for the low state */
 }
 
-.animated-green,
-.animated-red,
-.green-color {
-    -webkit-background-clip: text;
-    color: transparent;
+
+/* Updated bin liquid styles for better visibility and animation */
+.bin-liquid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0; /* Set initial height to 0, will update dynamically */
+  background: var(--secondary-color);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: height 0.5s ease, background-color 0.5s ease;
 }
 
-/* Liquid battery with gradient color */
-.gradient-color-red,
-.gradient-color-red::after {
-    background: var(--gradient-color-red);
+/*=============== COLOR STATES ===============*/
+.gradient-color-green {
+  background: var(--secondary-color);
 }
 
-.gradient-color-orange,
-.gradient-color-orange::after {
-    background: var(--gradient-color-orange);
+.gradient-color-orange {
+  background: var(--warning-color);
 }
 
-.gradient-color-yellow,
-.gradient-color-yellow::after {
-    background: var(--gradient-color-yellow);
+.gradient-color-red {
+  background: var(--danger-color);
 }
 
-.gradient-color-green,
-.gradient-color-green::after {
-    background: var(--gradient-color-green);
+/*=============== KEYFRAMES ===============*/
+@keyframes pulse-orange {
+  0% { box-shadow: 0 0 15px var(--warning-color); }
+  100% { box-shadow: 0 0 30px var(--warning-color); }
+}
+
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 15px var(--danger-color); }
+  100% { box-shadow: 0 0 30px var(--danger-color); }
+}
+
+/*=============== RESPONSIVE STYLES =============== */
+@media screen and (min-width: 768px) {
+  :root {
+    --font-size-large: 5rem;
+    --font-size-medium: 1.75rem;
+  }
 }
