@@ -23,14 +23,9 @@ interface MyWidgetProps extends IWidgetProps {
     name: string;
     level: number;
 }
+
 const DustbinWidget: React.FunctionComponent<MyWidgetProps> = (props) => {
-    const [binLevel, setBinLevel] = useState<number>(100);
-    const [binStatus, setBinStatus] = useState<string>('');
-    const [binLiquidColor, setBinLiquidColor] = useState<string>('gradient-color-green');
-    const [binPercentage, setBinPercentage] = useState<string>('0%');
-    const [dustbinId, setDustbinId] = useState<string>("Dustbin name");
-    const [dustbinData, setDustbinData] = useState<any>(null); // To hold the fetched data
-    const [binLocation, setBinLocation] = useState<string>('location');
+    const [dustbins, setDustbins] = useState<any[]>([]); // Array to hold the fetched dustbin data
 
     useEffect(() => {
         getData();
@@ -40,11 +35,7 @@ const DustbinWidget: React.FunctionComponent<MyWidgetProps> = (props) => {
         try {
             const res = await props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
             if (res && Array.isArray(res) && res.length > 0) {
-                const data = res[0];
-                setBinLevel(Number(data.value));
-                setDustbinId(data.name);
-                setBinLocation(data.location);
-                setDustbinData(data); // Store the fetched data for rendering
+                setDustbins(res); // Store the fetched data for rendering
             } else {
                 console.error('Invalid response data format or empty array', res);
             }
@@ -53,46 +44,54 @@ const DustbinWidget: React.FunctionComponent<MyWidgetProps> = (props) => {
         }
     }
 
-    useEffect(() => {
-        updateDustbinStatus(binLevel);
-    }, [binLevel]);
-
-    const updateDustbinStatus = (level: number) => {
-        setBinPercentage(`${level}%`);
+    const getBinStatus = (level: number) => {
+        let status = '';
+        let color = '';
 
         if (level >= 100) {
-            setBinStatus(`Full bin <i class="ri-delete-bin-3-line animated-red"></i>`);
-            setBinLiquidColor('gradient-color-red');
-        } else if (level > 60) { // Updated condition for 90% case
-            setBinStatus(`Almost Full <i class="ri-delete-bin-3-line animated-orange"></i>`);
-            setBinLiquidColor('gradient-color-red');
+            status = `Full bin <i class="ri-delete-bin-3-line animated-red"></i>`;
+            color = 'gradient-color-red';
+        } else if (level > 60) {
+            status = `Almost Full <i class="ri-delete-bin-3-line animated-orange"></i>`;
+            color = 'gradient-color-red';
         } else if (level > 35) {
-            setBinStatus(`Low bin <i class="ri-delete-bin-3-line animated-yellow"></i>`);
-            setBinLiquidColor('gradient-color-orange');
+            status = `Low bin <i class="ri-delete-bin-3-line animated-yellow"></i>`;
+            color = 'gradient-color-orange';
         } else {
-            setBinStatus(`Very Low <i class="ri-delete-bin-3-line animated-green"></i>`);
-            setBinLiquidColor('gradient-color-green');
+            status = `Very Low <i class="ri-delete-bin-3-line animated-green"></i>`;
+            color = 'gradient-color-green';
         }
+
+        return { status, color };
     };
 
     return (
         <section className="bin">
-            <div className="bin-card" id={dustbinId}>
-                <div className="bin-data">
-                    <p className="bin-text">{dustbinId}</p>
-                    <h1 className="bin-percentage">{binPercentage}</h1>
-                    <p className="bin-status" dangerouslySetInnerHTML={{ __html: binStatus }} />
-                    <p className="bin-location">{binLocation}</p>
-                </div>
-                <div className="bin-pill">
-                    <div className="bin-level">
-                        <div
-                            className={`bin-liquid ${binLiquidColor}`}
-                            style={{ height: binPercentage }} // Height should represent the bin level
-                        />
+            {dustbins.map((data) => {
+                const { value, name, location } = data; // Destructure the properties you need
+                const binLevel = Number(value);
+                const { status, color } = getBinStatus(binLevel); // Get the status and color for the current bin
+                const binPercentage = `${binLevel}%`; // Calculate the percentage
+
+                return (
+                    <div className="bin-card" id={name} key={name}>
+                        <div className="bin-data">
+                            <p className="bin-text">{name}</p>
+                            <h1 className="bin-percentage">{binPercentage}</h1>
+                            <p className="bin-status" dangerouslySetInnerHTML={{ __html: status }} />
+                            <p className="bin-location">{location}</p>
+                        </div>
+                        <div className="bin-pill">
+                            <div className="bin-level">
+                                <div
+                                    className={`bin-liquid ${color}`}
+                                    style={{ height: binPercentage }} // Height should represent the bin level
+                                />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                );
+            })}
         </section>
     );
 };

@@ -58,9 +58,18 @@ a {
 }
 
 /*=============== CARD CONTAINER ===============*/
+.bin {
+  display: flex; /* Use flexbox for a horizontal layout */
+  /* flex-wrap: wrap;  */
+  gap: 16px; /* Adjust spacing between the cards */
+  justify-content: space-around; /* Center the items and give space around */
+}
+
+
 .bin-card {
   background-color: var(--card-color);
   border-radius: var(--border-radius);
+  max-width: 350px;
   padding: var(--spacing-large);
   box-shadow: 0 4px 20px var(--shadow-color);
   display: flex;
@@ -104,6 +113,7 @@ a {
 /*=============== PILL STYLES ===============*/
 .bin-pill {
   position: relative;
+  margin-left: 25px;
   width: 100px;
   height: 220px;
   background-color: var(--background-color);
@@ -112,6 +122,7 @@ a {
   overflow: hidden;
   transition: all 0.3s ease;
   border: 2px solid rgba(0, 0, 0, 0.05);
+  
 }
 
 .bin-level {
@@ -119,6 +130,7 @@ a {
   inset: 4px;
   border-radius: 50px;
   overflow: hidden;
+  
 }
 /* Update your CSS file */
 .bin-status i {
