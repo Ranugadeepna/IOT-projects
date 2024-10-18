@@ -22,10 +22,12 @@ interface MyWidgetProps extends IWidgetProps {
     id: string;
     name: string;
     level: number;
+    model: string;
+    action: string;
 }
 
 const DustbinWidget: React.FunctionComponent<MyWidgetProps> = (props) => {
-    const [dustbins, setDustbins] = useState<any[]>([]); // Array to hold the fetched dustbin data
+    const [dustbins, setDustbins] = useState<any[]>([]); 
 
     useEffect(() => {
         getData();
@@ -35,7 +37,7 @@ const DustbinWidget: React.FunctionComponent<MyWidgetProps> = (props) => {
         try {
             const res = await props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
             if (res && Array.isArray(res) && res.length > 0) {
-                setDustbins(res); // Store the fetched data for rendering
+                setDustbins(res);
             } else {
                 console.error('Invalid response data format or empty array', res);
             }
@@ -100,23 +102,93 @@ const DustbinWidget: React.FunctionComponent<MyWidgetProps> = (props) => {
 
 //side bar widget 
 
-const SidebarWidget: React.FunctionComponent<IWidgetProps> = (props) => {
+interface MyWidgetProps  extends  IWidgetProps {}
 
-    return (
-       
-      <div className="sidebar">
-      <img src="Red.jpg" alt="logo" className="logo"  />
-   
-   <ul className="sidebarnav">
-     <li><a href="https://www.google.com/">BINS</a></li>
-     <li><a href="#">CATEGORIES</a></li>
-     <li><a href="#">SETTINGS</a></li>
-   </ul>
- </div>
- 
-    );
-};
-
+interface Link {
+    title: string;
+    url: string;
+  }
+  
+  const SidebarWidget: React.FunctionComponent<IWidgetProps> = (props) => {
+      const [links, setLinks] = useState<Link[]>([
+          { title: 'BINS', url: 'https://www.google.com/' },
+          { title: 'CATEGORIES', url: '#' },
+          { title: 'SETTINGS', url: '#' },
+      ]);
+  
+      const [newLink, setNewLink] = useState({ title: '', url: '' });
+      const [isAddMode, setIsAddMode] = useState(false);  // Toggle form visibility
+      const [isDeleteMode, setIsDeleteMode] = useState(false);  // Toggle delete mode
+  
+      // Add link to the sidebar
+      const addLink = () => {
+          if (newLink.title && newLink.url) {
+              setLinks([...links, newLink]);
+              setNewLink({ title: '', url: '' });  // Reset input fields
+              setIsAddMode(false);  // Hide the form after adding
+          }
+      };
+  
+      // Remove link from the sidebar
+      const removeLink = (index: number) => {
+          const updatedLinks = links.filter((_, i) => i !== index);
+          setLinks(updatedLinks);
+      };
+  
+      // Cancel any current mode (Add or Delete)
+      const cancelAction = () => {
+          setIsAddMode(false);
+          setIsDeleteMode(false);
+          setNewLink({ title: '', url: '' });  // Reset the form input if any
+      };
+  
+      return (
+          <div className="sidebar">
+              <img src="Red.jpg" alt="logo" className="logo" />
+  
+              <ul className="sidebarnav">
+                  {links.map((link, index) => (
+                      <li key={index}>
+                          <a href={link.url}>{link.title}</a>
+                          {isDeleteMode && <button onClick={() => removeLink(index)}>Delete</button>}
+                      </li>
+                  ))}
+              </ul>
+  
+              <div className="sidebar-controls">
+                  <button onClick={() => { setIsAddMode(!isAddMode); setIsDeleteMode(false); }}>Add Item</button>
+                  <button onClick={() => { setIsDeleteMode(!isDeleteMode); setIsAddMode(false); }}>Delete Item</button>
+              </div>
+  
+              {(isAddMode || isDeleteMode) && (
+                  <div className="sidebar-actions">
+                      {/* Add Link Form */}
+                      {isAddMode && (
+                          <div className="add-link-form">
+                              <input
+                                  type="text"
+                                  placeholder="Link title"
+                                  value={newLink.title}
+                                  onChange={(e) => setNewLink({ ...newLink, title: e.target.value })}
+                              />
+                              <input
+                                  type="text"
+                                  placeholder="Link URL"
+                                  value={newLink.url}
+                                  onChange={(e) => setNewLink({ ...newLink, url: e.target.value })}
+                              />
+                              <button onClick={addLink}>Add Link</button>
+                          </div>
+                      )}
+  
+                      {/* Cancel Button */}
+                      <button className="cancel-button" onClick={cancelAction}>Cancel</button>
+                  </div>
+              )}
+          </div>
+      );
+  };
+  
 
 //Stacked area chart
 
@@ -171,6 +243,28 @@ const StackedAreaChartWidget: React.FunctionComponent<SChartWidgetProps> = (prop
           amt: 2100,
         },
       ];
+
+    // let [data, setData] =     React.useState([])
+
+    // useEffect(() => {
+    //     getChartData();
+    // }, []);
+    
+    // async function getChartData() {
+    //     try {
+    //         const res = await props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
+    
+    //         let _data: any[] = res.summary.map((s: any) => {
+    //             return { name: s.id, uv: s.name, pv: s.value, amt: s.low };
+    //         });
+    
+    //         setData(_data);
+    //         console.log(_data);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
+    
 
     return (
        
@@ -228,7 +322,25 @@ registerWidget({
             // h: 12,
             // minH: 12,
             // minW: 12
-        }
+        },
+        props: [
+            {
+              name: "model",
+              label: "WIdget model",
+              type: "text",
+              validate: {
+                required: false,
+              },
+            },
+            {
+                name: "action",
+                label: "WIdget action",
+                type: "text",
+                validate: {
+                  required: false,
+                },
+              },
+          ],
     }
 
 });

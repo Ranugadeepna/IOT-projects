@@ -12,9 +12,8 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for elevated effect */
     font-family: 'Poppins', sans-serif; /* Modern font */
     transition: transform 0.3s ease;
-    resize: none;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Adjusted to give space for buttons */
 }
 
 .sidebar:hover {
@@ -28,8 +27,8 @@
     flex-direction: column;
     gap: 20px; /* More space between the items */
     align-items: center;
-    
 }
+
 /* Fixed size for each li */
 .sidebarnav li {
     width: 200px; /* Set a specific width */
@@ -63,8 +62,88 @@
     color: white;
 }
 
-.sidebar .logo{
+.sidebar .logo {
     height: 100px;
     width: 100px;
-    border: cicle;
+    border-radius: 50%; /* Circular logo */
+}
+
+/* Style for the control buttons (Add/Delete) */
+.sidebar-controls {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Style for individual buttons */
+.sidebar-controls button {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar-controls button:hover {
+    background-color: #0072ff; /* Bright blue on hover */
+}
+
+/* Form for adding new links */
+.add-link-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.add-link-form input {
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent input */
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.add-link-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+}
+
+.add-link-form button {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-link-form button:hover {
+    background-color: #0072ff; /* Bright blue on hover */
+}
+
+/* Cancel button styling */
+.cancel-button {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #ff4b5c; /* Bright red on hover */
 }

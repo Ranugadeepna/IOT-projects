@@ -47,7 +47,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, "/* Super-styled sidebar */\r\n.sidebar {\r\n    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient background */\r\n    height: 100%;\r\n    width: 100%;\r\n    color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    box-sizing: border-box;\r\n    border-radius: 20px;\r\n    padding: 25px;\r\n    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for elevated effect */\r\n    font-family: 'Poppins', sans-serif; /* Modern font */\r\n    transition: transform 0.3s ease;\r\n    resize: none;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.sidebar:hover {\r\n    transform: scale(1.02); /* Slight zoom on hover */\r\n}\r\n\r\n.sidebarnav {\r\n    list-style-type: none;\r\n    padding: 0;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 20px; /* More space between the items */\r\n    align-items: center;\r\n    \r\n}\r\n/* Fixed size for each li */\r\n.sidebarnav li {\r\n    width: 200px; /* Set a specific width */\r\n    height: 50px; /* Set a specific height */\r\n    display: flex; /* Align content inside the li */\r\n    justify-content: center; /* Center horizontally */\r\n    align-items: center; /* Center vertically */\r\n    background-color: rgba(255, 255, 255, 0.1); /* Background color for the box */\r\n    border-radius: 10px; /* Rounded corners */\r\n    margin-bottom: 0px; /* Space between items */\r\n}\r\n\r\n/* Style the a inside the li */\r\n.sidebarnav a {\r\n    text-decoration: none;\r\n    color: white;\r\n    font-size: 18px;\r\n    padding: 5px;\r\n    width: 100%; /* Fill the entire li width */\r\n    height: 100%; /* Fill the entire li height */\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 10px;\r\n    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n.sidebarnav a:hover {\r\n    background-color: #00b4ff; /* Bright blue on hover */\r\n    color: white;\r\n}\r\n\r\n.sidebar .logo{\r\n    height: 100px;\r\n    width: 100px;\r\n    border: cicle;\r\n}", ""]);
+exports.push([module.id, "/* Super-styled sidebar */\r\n.sidebar {\r\n    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient background */\r\n    height: 100%;\r\n    width: 100%;\r\n    color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    box-sizing: border-box;\r\n    border-radius: 20px;\r\n    padding: 25px;\r\n    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for elevated effect */\r\n    font-family: 'Poppins', sans-serif; /* Modern font */\r\n    transition: transform 0.3s ease;\r\n    align-items: center;\r\n    justify-content: space-between; /* Adjusted to give space for buttons */\r\n}\r\n\r\n.sidebar:hover {\r\n    transform: scale(1.02); /* Slight zoom on hover */\r\n}\r\n\r\n.sidebarnav {\r\n    list-style-type: none;\r\n    padding: 0;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 20px; /* More space between the items */\r\n    align-items: center;\r\n}\r\n\r\n/* Fixed size for each li */\r\n.sidebarnav li {\r\n    width: 200px; /* Set a specific width */\r\n    height: 50px; /* Set a specific height */\r\n    display: flex; /* Align content inside the li */\r\n    justify-content: center; /* Center horizontally */\r\n    align-items: center; /* Center vertically */\r\n    background-color: rgba(255, 255, 255, 0.1); /* Background color for the box */\r\n    border-radius: 10px; /* Rounded corners */\r\n    margin-bottom: 0px; /* Space between items */\r\n}\r\n\r\n/* Style the a inside the li */\r\n.sidebarnav a {\r\n    text-decoration: none;\r\n    color: white;\r\n    font-size: 18px;\r\n    padding: 5px;\r\n    width: 100%; /* Fill the entire li width */\r\n    height: 100%; /* Fill the entire li height */\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 10px;\r\n    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n.sidebarnav a:hover {\r\n    background-color: #00b4ff; /* Bright blue on hover */\r\n    color: white;\r\n}\r\n\r\n.sidebar .logo {\r\n    height: 100px;\r\n    width: 100px;\r\n    border-radius: 50%; /* Circular logo */\r\n}\r\n\r\n/* Style for the control buttons (Add/Delete) */\r\n.sidebar-controls {\r\n    display: flex;\r\n    gap: 10px; /* Space between buttons */\r\n    justify-content: center;\r\n    margin-top: 20px;\r\n}\r\n\r\n/* Style for individual buttons */\r\n.sidebar-controls button {\r\n    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */\r\n    color: white;\r\n    border: none;\r\n    padding: 10px 20px;\r\n    font-size: 16px;\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n    transition: background-color 0.3s ease;\r\n    font-family: 'Poppins', sans-serif;\r\n}\r\n\r\n.sidebar-controls button:hover {\r\n    background-color: #0072ff; /* Bright blue on hover */\r\n}\r\n\r\n/* Form for adding new links */\r\n.add-link-form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 10px;\r\n    margin-top: 20px;\r\n}\r\n\r\n.add-link-form input {\r\n    width: 200px;\r\n    padding: 10px;\r\n    border-radius: 10px;\r\n    border: none;\r\n    outline: none;\r\n    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent input */\r\n    color: white;\r\n    font-family: 'Poppins', sans-serif;\r\n}\r\n\r\n.add-link-form input::placeholder {\r\n    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */\r\n}\r\n\r\n.add-link-form button {\r\n    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */\r\n    color: white;\r\n    border: none;\r\n    padding: 10px 20px;\r\n    font-size: 16px;\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n    transition: background-color 0.3s ease;\r\n}\r\n\r\n.add-link-form button:hover {\r\n    background-color: #0072ff; /* Bright blue on hover */\r\n}\r\n\r\n/* Cancel button styling */\r\n.cancel-button {\r\n    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */\r\n    color: white;\r\n    border: none;\r\n    padding: 10px 20px;\r\n    font-size: 16px;\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n    transition: background-color 0.3s ease;\r\n    margin-top: 10px;\r\n}\r\n\r\n.cancel-button:hover {\r\n    background-color: #ff4b5c; /* Bright red on hover */\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -570,7 +570,7 @@ __webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
 __webpack_require__(/*! ./Dustbincardstyles.css */ "./src/Dustbincardstyles.css");
 __webpack_require__(/*! ./sidebarStyles.css */ "./src/sidebarStyles.css");
 const DustbinWidget = (props) => {
-    const [dustbins, setDustbins] = (0, react_1.useState)([]); // Array to hold the fetched dustbin data
+    const [dustbins, setDustbins] = (0, react_1.useState)([]);
     (0, react_1.useEffect)(() => {
         getData();
     }, []);
@@ -579,7 +579,7 @@ const DustbinWidget = (props) => {
             try {
                 const res = yield props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
                 if (res && Array.isArray(res) && res.length > 0) {
-                    setDustbins(res); // Store the fetched data for rendering
+                    setDustbins(res);
                 }
                 else {
                     console.error('Invalid response data format or empty array', res);
@@ -627,17 +627,48 @@ const DustbinWidget = (props) => {
                     React.createElement("div", { className: `bin-liquid ${color}`, style: { height: binPercentage } })))));
     })));
 };
-//side bar widget 
 const SidebarWidget = (props) => {
+    const [links, setLinks] = (0, react_1.useState)([
+        { title: 'BINS', url: 'https://www.google.com/' },
+        { title: 'CATEGORIES', url: '#' },
+        { title: 'SETTINGS', url: '#' },
+    ]);
+    const [newLink, setNewLink] = (0, react_1.useState)({ title: '', url: '' });
+    const [isAddMode, setIsAddMode] = (0, react_1.useState)(false); // Toggle form visibility
+    const [isDeleteMode, setIsDeleteMode] = (0, react_1.useState)(false); // Toggle delete mode
+    // Add link to the sidebar
+    const addLink = () => {
+        if (newLink.title && newLink.url) {
+            setLinks([...links, newLink]);
+            setNewLink({ title: '', url: '' }); // Reset input fields
+            setIsAddMode(false); // Hide the form after adding
+        }
+    };
+    // Remove link from the sidebar
+    const removeLink = (index) => {
+        const updatedLinks = links.filter((_, i) => i !== index);
+        setLinks(updatedLinks);
+    };
+    // Cancel any current mode (Add or Delete)
+    const cancelAction = () => {
+        setIsAddMode(false);
+        setIsDeleteMode(false);
+        setNewLink({ title: '', url: '' }); // Reset the form input if any
+    };
     return (React.createElement("div", { className: "sidebar" },
         React.createElement("img", { src: "Red.jpg", alt: "logo", className: "logo" }),
-        React.createElement("ul", { className: "sidebarnav" },
-            React.createElement("li", null,
-                React.createElement("a", { href: "https://www.google.com/" }, "BINS")),
-            React.createElement("li", null,
-                React.createElement("a", { href: "#" }, "CATEGORIES")),
-            React.createElement("li", null,
-                React.createElement("a", { href: "#" }, "SETTINGS")))));
+        React.createElement("ul", { className: "sidebarnav" }, links.map((link, index) => (React.createElement("li", { key: index },
+            React.createElement("a", { href: link.url }, link.title),
+            isDeleteMode && React.createElement("button", { onClick: () => removeLink(index) }, "Delete"))))),
+        React.createElement("div", { className: "sidebar-controls" },
+            React.createElement("button", { onClick: () => { setIsAddMode(!isAddMode); setIsDeleteMode(false); } }, "Add Item"),
+            React.createElement("button", { onClick: () => { setIsDeleteMode(!isDeleteMode); setIsAddMode(false); } }, "Delete Item")),
+        (isAddMode || isDeleteMode) && (React.createElement("div", { className: "sidebar-actions" },
+            isAddMode && (React.createElement("div", { className: "add-link-form" },
+                React.createElement("input", { type: "text", placeholder: "Link title", value: newLink.title, onChange: (e) => setNewLink(Object.assign(Object.assign({}, newLink), { title: e.target.value })) }),
+                React.createElement("input", { type: "text", placeholder: "Link URL", value: newLink.url, onChange: (e) => setNewLink(Object.assign(Object.assign({}, newLink), { url: e.target.value })) }),
+                React.createElement("button", { onClick: addLink }, "Add Link"))),
+            React.createElement("button", { className: "cancel-button", onClick: cancelAction }, "Cancel")))));
 };
 const StackedAreaChartWidget = (props) => {
     const data = [
@@ -684,6 +715,22 @@ const StackedAreaChartWidget = (props) => {
             amt: 2100,
         },
     ];
+    // let [data, setData] =     React.useState([])
+    // useEffect(() => {
+    //     getChartData();
+    // }, []);
+    // async function getChartData() {
+    //     try {
+    //         const res = await props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
+    //         let _data: any[] = res.summary.map((s: any) => {
+    //             return { name: s.id, uv: s.name, pv: s.value, amt: s.low };
+    //         });
+    //         setData(_data);
+    //         console.log(_data);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
     return (React.createElement(recharts_1.AreaChart, { width: 500, height: 400, data: data, margin: {
             top: 10,
             right: 30,
@@ -722,7 +769,25 @@ const StackedAreaChartWidget = (props) => {
         // h: 12,
         // minH: 12,
         // minW: 12
-        }
+        },
+        props: [
+            {
+                name: "model",
+                label: "WIdget model",
+                type: "text",
+                validate: {
+                    required: false,
+                },
+            },
+            {
+                name: "action",
+                label: "WIdget action",
+                type: "text",
+                validate: {
+                    required: false,
+                },
+            },
+        ],
     }
 });
 (0, uxp_1.registerWidget)({
