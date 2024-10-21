@@ -577,7 +577,7 @@ const DustbinWidget = (props) => {
     function getData() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const res = yield props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
+                const res = yield props.uxpContext.executeAction(props.model, props.action, {}, { json: true });
                 if (res && Array.isArray(res) && res.length > 0) {
                     setDustbins(res);
                 }
@@ -671,79 +671,77 @@ const SidebarWidget = (props) => {
             React.createElement("button", { className: "cancel-button", onClick: cancelAction }, "Cancel")))));
 };
 const StackedAreaChartWidget = (props) => {
-    const data = [
-        {
-            name: 'Page A',
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
-        },
-        {
-            name: 'Page B',
-            uv: 3000,
-            pv: 1398,
-            amt: 2210,
-        },
-        {
-            name: 'Page C',
-            uv: 2000,
-            pv: 12800,
-            amt: 2290,
-        },
-        {
-            name: 'Page D',
-            uv: 2780,
-            pv: 3908,
-            amt: 2000,
-        },
-        {
-            name: 'Page E',
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
-        },
-        {
-            name: 'Page F',
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-        {
-            name: 'Page G',
-            uv: 3490,
-            pv: 4300,
-            amt: 2100,
-        },
-    ];
-    // let [data, setData] =     React.useState([])
-    // useEffect(() => {
-    //     getChartData();
-    // }, []);
-    // async function getChartData() {
+    const [trends, setTrends] = React.useState('');
+    const [data, setData] = React.useState([]);
+    // async function getBinNamesForTrends() {
     //     try {
     //         const res = await props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
-    //         let _data: any[] = res.summary.map((s: any) => {
-    //             return { name: s.id, uv: s.name, pv: s.value, amt: s.low };
-    //         });
-    //         setData(_data);
-    //         console.log(_data);
+    //         console.log("Full API Response:", res);
+    //         if (Array.isArray(res)) {
+    //             let _bins = res.map(bin => bin);
+    //             const ids = _bins.map(bin => bin.id).join(',');
+    //             console.log("Extracted IDs:", ids);
+    //             setTrends(ids);
+    //         } else {
+    //             console.error("Error: Unexpected API response format.");
+    //         }
+    //     } catch (err) {
+    //         console.error("API Error:", err);
+    //     }
+    // }
+    // useEffect(() => {
+    //     getBinNamesForTrends();
+    // }, []);
+    // useEffect(() => {
+    //     if (trends) {
+    //         getChartData();
+    //     }
+    // }, [trends]);
+    // async function getChartData() {
+    //     try {
+    //         const res2 = await props.uxpContext.executeAction('ranuga-exercise-model', 'getTrendDataFromuxp', { trends }, { json: true });
+    //         console.log(res2);
+    //         let combinedData = {
+    //             name: res2.date,
+    //             ...Object.fromEntries(res2.bins.map((bin: Bin) => [bin.name, bin.value]))
+    //         };
+    //         setData([combinedData]);
+    //         console.log([combinedData]);
     //     } catch (err) {
     //         console.log(err);
     //     }
     // }
-    return (React.createElement(recharts_1.AreaChart, { width: 500, height: 400, data: data, margin: {
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-        } },
-        React.createElement(recharts_1.CartesianGrid, { strokeDasharray: "3 3" }),
-        React.createElement(recharts_1.XAxis, { dataKey: "name" }),
-        React.createElement(recharts_1.YAxis, null),
-        React.createElement(recharts_1.Tooltip, null),
-        React.createElement(recharts_1.Area, { type: "monotone", dataKey: "uv", stackId: "1", stroke: "#8884d8", fill: "#8884d8" }),
-        React.createElement(recharts_1.Area, { type: "monotone", dataKey: "pv", stackId: "1", stroke: "#82ca9d", fill: "#82ca9d" }),
-        React.createElement(recharts_1.Area, { type: "monotone", dataKey: "amt", stackId: "1", stroke: "#ffc658", fill: "#ffc658" })));
+    const data1 = [
+        { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
+        { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
+        { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
+        { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
+        { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
+        { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
+        { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },
+        { name: 'Page H', uv: 3490, pv: 4300, amt: 2100 },
+        { name: 'Page I', uv: 3490, pv: 4300, amt: 2100 },
+        { name: 'Page J', uv: 3490, pv: 4300, amt: 2100 },
+        { name: 'Page K', uv: 3490, pv: 4300, amt: 2100 },
+        { name: 'Page L', uv: 3490, pv: 4300, amt: 2100 },
+        { name: 'Page M', uv: 3490, pv: 4300, amt: 2100 },
+        { name: 'Page N', uv: 3490, pv: 4300, amt: 2100 },
+        { name: 'Page O', uv: 3490, pv: 4300, amt: 2100 },
+    ];
+    return (React.createElement("div", { style: { overflowX: 'hidden', height: '400px' } },
+        React.createElement("div", { style: { minWidth: '900px', height: '100%' } },
+            React.createElement(recharts_1.ResponsiveContainer, { width: "100%", height: "100%" },
+                React.createElement(recharts_1.AreaChart, { data: data1, margin: {
+                        top: 10,
+                        right: 30,
+                        left: 0,
+                        bottom: 0,
+                    } },
+                    React.createElement(recharts_1.CartesianGrid, { strokeDasharray: "3 3" }),
+                    React.createElement(recharts_1.XAxis, { dataKey: "name" }),
+                    React.createElement(recharts_1.YAxis, null),
+                    React.createElement(recharts_1.Tooltip, null),
+                    data1.length > 0 && Object.keys(data1[0]).filter(key => key !== 'name').map((binName, index) => (React.createElement(recharts_1.Area, { key: index, type: "monotone", dataKey: binName, stackId: "1", stroke: `#${Math.floor(Math.random() * 16777215).toString(16)}`, fill: `#${Math.floor(Math.random() * 16777215).toString(16)}` }))))))));
 };
 /**
  * Register as a Widget
@@ -788,6 +786,10 @@ const StackedAreaChartWidget = (props) => {
                 },
             },
         ],
+    },
+    defaultProps: {
+        'model': 'ranuga-exercise-model',
+        'action': 'getwastedata',
     }
 });
 (0, uxp_1.registerWidget)({
@@ -811,7 +813,29 @@ const StackedAreaChartWidget = (props) => {
         // h: 12,
         // minH: 12,
         // minW: 12
-        }
+        },
+        props: [
+            {
+                name: "model",
+                label: "WIdget model",
+                type: "text",
+                validate: {
+                    required: false,
+                },
+            },
+            {
+                name: "action",
+                label: "WIdget action",
+                type: "text",
+                validate: {
+                    required: false,
+                },
+            },
+        ]
+    },
+    defaultProps: {
+        'model': 'ranuga-exercise-model',
+        'action': 'getTrendDataFromuxp',
     }
 });
 /**

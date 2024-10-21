@@ -201,8 +201,6 @@ interface SChartWidgetProps {
     trends: string,
 }
 
-
-
 const StackedAreaChartWidget: React.FunctionComponent<SChartWidgetProps> = (props) => {
     const [trends, setTrends] = React.useState('');
     const [data, setData] = React.useState([]);
@@ -211,79 +209,60 @@ const StackedAreaChartWidget: React.FunctionComponent<SChartWidgetProps> = (prop
         name: string;
         value: number;
     }
-    
-   
 
-    // async function getBinNamesForTrends() {
-    //     try {
-    //         const res = await props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
-    //         console.log("Full API Response:", res);
-            
-    //         if (Array.isArray(res)) {
-    //             let _bins = res.map(bin => bin);
-    //             const ids = _bins.map(bin => bin.id).join(',');
-    //             console.log("Extracted IDs:", ids);
-    //             setTrends(ids);
-    //         } else {
-    //             console.error("Error: Unexpected API response format.");
-    //         }
-    //     } catch (err) {
-    //         console.error("API Error:", err);
-    //     }
-    // }
+    async function getBinNamesForTrends() {
+        try {
+            const res = await props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
+            console.log(res);
     
-    // useEffect(() => {
-    //     getBinNamesForTrends();
-    // }, []);
+            // Convert summary to an array
+            let _bins = Object.keys(res.summary).map(key => res.summary[key]);
+            const ids = _bins.map(bin => bin.id).join(',');
     
-    // useEffect(() => {
-    //     if (trends) {
-    //         getChartData();
-    //     }
-    // }, [trends]);
+            // Log the extracted IDs for verification
+            console.log("Extracted IDs:", ids);
     
-    // async function getChartData() {
-    //     try {
-    //         const res2 = await props.uxpContext.executeAction('ranuga-exercise-model', 'getTrendDataFromuxp', { trends }, { json: true });
-    //         console.log(res2);
+            // Set the trends state with the comma-separated IDs
+            setTrends(ids);
+        } catch (err) {
+            console.log(err);
+        }
+    }
     
-    //         let combinedData = {
-    //             name: res2.date,
-    //             ...Object.fromEntries(res2.bins.map((bin: Bin) => [bin.name, bin.value]))
-    //         };
-    
-    //         setData([combinedData]);
-    //         console.log([combinedData]);
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
 
-    const data1 = [
-        { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-        { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-        { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-        { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-        { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-        { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-        { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },
-        { name: 'Page H', uv: 3490, pv: 4300, amt: 2100 },
-        { name: 'Page I', uv: 3490, pv: 4300, amt: 2100 },
-        { name: 'Page J', uv: 3490, pv: 4300, amt: 2100 },
-        { name: 'Page K', uv: 3490, pv: 4300, amt: 2100 },
-        { name: 'Page L', uv: 3490, pv: 4300, amt: 2100 },
-        { name: 'Page M', uv: 3490, pv: 4300, amt: 2100 },
-        { name: 'Page N', uv: 3490, pv: 4300, amt: 2100 },
-        { name: 'Page O', uv: 3490, pv: 4300, amt: 2100 },
-      ];
+    useEffect(() => {
+        getBinNamesForTrends();
+    }, []);
 
-   
+    useEffect(() => {
+       
+            getChartData();
+       
+    }, []);
+
+    async function getChartData() {
+        try {
+            const res2 = await props.uxpContext.executeAction('ranuga-exercise-model', 'getTrendDataFromuxp', { trends}, { json: true });
+            console.log(res2);
+
+            let combinedData = {
+                name: res2.date,
+                ...Object.fromEntries(res2.bins.map((bin: Bin) => [bin.name, bin.value]))
+            };
+
+            setData([combinedData]);
+            console.log([combinedData]);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
-        <div style={{ overflowX: 'hidden', height: '400px' }}>
+        <div style={{ overflowX: 'scroll', height: '400px' }}>
             <div style={{ minWidth: '900px', height: '100%' }}>
                 <ResponsiveContainer width="100%" height="100%">
                     <AreaChart
-                        data={data1}
+                        data={data}
                         margin={{
                             top: 10,
                             right: 30,
@@ -295,7 +274,7 @@ const StackedAreaChartWidget: React.FunctionComponent<SChartWidgetProps> = (prop
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Tooltip />
-                        {data1.length > 0 && Object.keys(data1[0]).filter(key => key !== 'name').map((binName, index) => (
+                        {data.length > 0 && Object.keys(data[0]).filter(key => key !== 'name').map((binName, index) => (
                             <Area
                                 key={index}
                                 type="monotone"
@@ -311,7 +290,6 @@ const StackedAreaChartWidget: React.FunctionComponent<SChartWidgetProps> = (prop
         </div>
     );
 };
-
 
 
 
