@@ -60,8 +60,8 @@ a {
 /*=============== CARD CONTAINER ===============*/
 .bin {
   display: flex; /* Use flexbox for a horizontal layout */
-  /* flex-wrap: wrap;  */
-  gap: 16px; /* Adjust spacing between the cards */
+  flex-wrap: wrap; 
+  gap: 10px; /* Adjust spacing between the cards */
   justify-content: space-around; /* Center the items and give space around */
 }
 
