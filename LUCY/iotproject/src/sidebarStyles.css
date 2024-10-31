@@ -1,149 +1,160 @@
-/* Super-styled sidebar */
 .sidebar {
-    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient background */
-    height: 100%;
-    width: 100%;
-    color: white;
+    width: 280px;
+    background-color: #f7f8fc;
+    color: #333;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for elevated effect */
-    font-family: 'Poppins', sans-serif; /* Modern font */
-    transition: transform 0.3s ease;
-    align-items: center;
-    justify-content: space-between; /* Adjusted to give space for buttons */
+    justify-content: space-between;
 }
 
-.sidebar:hover {
-    transform: scale(1.02); /* Slight zoom on hover */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    color: #0073e6;
+    font-size: 1.5rem;
 }
 
 .sidebarnav {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* More space between the items */
-    align-items: center;
+    margin: 0;
+    flex-grow: 1;
 }
 
-/* Fixed size for each li */
 .sidebarnav li {
-    width: 200px; /* Set a specific width */
-    height: 50px; /* Set a specific height */
-    display: flex; /* Align content inside the li */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    background-color: rgba(255, 255, 255, 0.1); /* Background color for the box */
-    border-radius: 10px; /* Rounded corners */
-    margin-bottom: 0px; /* Space between items */
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-/* Style the a inside the li */
 .sidebarnav a {
     text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 5px;
-    width: 100%; /* Fill the entire li width */
-    height: 100%; /* Fill the entire li height */
+    color: #333;
+    font-weight: 500;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    transition: all 0.3s ease;
+    padding: 12px 15px;
+    width: 100%;
+    border-radius: 8px;
+    transition: background 0.3s;
+    gap: 10px;
+}
+
+.sidebar a {
+    font-size: 14px; /* Adjust the font size as needed */
+    padding: 8px 10px; /* Adjust padding for better spacing */
 }
 
 .sidebarnav a:hover {
-    background-color: #00b4ff; /* Bright blue on hover */
-    color: white;
+    background-color: #e0f0ff;
+    color: #0073e6;
 }
 
-.sidebar .logo {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%; /* Circular logo */
+.tool-icon {
+    position: relative; /* Change to relative */
+    bottom: 0; /* Reset any bottom offset */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-/* Style for the control buttons (Add/Delete) */
+.tool-options {
+    position: absolute; /* Use absolute positioning */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px; /* Space between the icon and options */
+    padding: 5px;
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
+.tool-option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tool-option:hover {
+    
+    color: #0aca04; 
+    transition: 5ms;
+}
+
+.icon {
+    color: #0073e6;
+}
+
 .sidebar-controls {
     display: flex;
-    gap: 10px; /* Space between buttons */
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* Style for individual buttons */
-.sidebar-controls button {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-}
-
-.sidebar-controls button:hover {
-    background-color: #0072ff; /* Bright blue on hover */
-}
-
-/* Form for adding new links */
-.add-link-form {
-    display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse; /* Stack tool icon and options */
     gap: 10px;
     margin-top: 20px;
 }
 
-.add-link-form input {
-    width: 200px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent input */
-    color: white;
-    font-family: 'Poppins', sans-serif;
+.delete-button {
+    background-color: transparent; /* Make delete button transparent */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer */
+    color: #ff4d4d; /* Red color for delete action */
+    margin-left: 10px; /* Space between link and delete button */
+    transition: color 0.3s; /* Transition for color change */
 }
 
-.add-link-form input::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+.delete-button:hover {
+    color: #cc0000; /* Darker red on hover */
+}
+
+.sidebar-actions {
+    margin-top: 20px;
+}
+
+.add-link-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .add-link-form button {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #0073e6; /* Primary color */
+    color: white; /* Text color */
+    padding: 10px 15px; /* Padding for better spacing */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s, transform 0.2s; /* Transitions for background and transform */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .add-link-form button:hover {
-    background-color: #0072ff; /* Bright blue on hover */
+    background-color: #005bb5; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
-/* Cancel button styling */
+.add-link-form button:active {
+    background-color: #004494; /* Even darker shade on active */
+    transform: translateY(0); /* Reset lift effect */
+}
+
+
+.add-link-form input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
 .cancel-button {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
     margin-top: 10px;
-}
-
-.cancel-button:hover {
-    background-color: #ff4b5c; /* Bright red on hover */
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
 }

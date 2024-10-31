@@ -1,10 +1,11 @@
 import * as React from "react";
 import { registerWidget, registerLink, registerUI, IContextProvider, enableLocalization, registerCustomWidgetTemplate, } from './uxp';
 import { TitleBar, FilterPanel, WidgetWrapper } from "uxp/components";
-import { IWDDesignModeProps } from "widget-designer/components";
+import { IWDDesignModeProps,} from "widget-designer/components";
 import BundleConfig from '../bundle.json';
 import { useState, useEffect } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { FaTrash, FaPlus,FaHome,FaTools, FaCog, FaBox, FaLink, FaSearch } from 'react-icons/fa';
 
 import './styles.scss';
 import './Dustbincardstyles.css';
@@ -99,97 +100,122 @@ const DustbinWidget: React.FunctionComponent<MyWidgetProps> = (props) => {
     );
 };
 
+//side bar widget
 
+// import React, { useState, useEffect } from 'react';
 
-//side bar widget 
+// Interface definitions remain the same
 
-interface MyWidgetProps  extends  IWidgetProps {}
 
 interface Link {
     title: string;
     url: string;
-  }
-  
-  const SidebarWidget: React.FunctionComponent<IWidgetProps> = (props) => {
-      const [links, setLinks] = useState<Link[]>([
-          { title: 'BINS', url: 'https://www.google.com/' },
-          { title: 'CATEGORIES', url: '#' },
-          { title: 'SETTINGS', url: '#' },
-      ]);
-  
-      const [newLink, setNewLink] = useState({ title: '', url: '' });
-      const [isAddMode, setIsAddMode] = useState(false);  // Toggle form visibility
-      const [isDeleteMode, setIsDeleteMode] = useState(false);  // Toggle delete mode
-  
-      // Add link to the sidebar
-      const addLink = () => {
-          if (newLink.title && newLink.url) {
-              setLinks([...links, newLink]);
-              setNewLink({ title: '', url: '' });  // Reset input fields
-              setIsAddMode(false);  // Hide the form after adding
-          }
-      };
-  
-      // Remove link from the sidebar
-      const removeLink = (index: number) => {
-          const updatedLinks = links.filter((_, i) => i !== index);
-          setLinks(updatedLinks);
-      };
-  
-      // Cancel any current mode (Add or Delete)
-      const cancelAction = () => {
-          setIsAddMode(false);
-          setIsDeleteMode(false);
-          setNewLink({ title: '', url: '' });  // Reset the form input if any
-      };
-  
-      return (
-          <div className="sidebar">
-              <img src="Red.jpg" alt="logo" className="logo" />
-  
-              <ul className="sidebarnav">
-                  {links.map((link, index) => (
-                      <li key={index}>
-                          <a href={link.url}>{link.title}</a>
-                          {isDeleteMode && <button onClick={() => removeLink(index)}>Delete</button>}
-                      </li>
-                  ))}
-              </ul>
-  
-              <div className="sidebar-controls">
-                  <button onClick={() => { setIsAddMode(!isAddMode); setIsDeleteMode(false); }}>Add Item</button>
-                  <button onClick={() => { setIsDeleteMode(!isDeleteMode); setIsAddMode(false); }}>Delete Item</button>
-              </div>
-  
-              {(isAddMode || isDeleteMode) && (
-                  <div className="sidebar-actions">
-                      {/* Add Link Form */}
-                      {isAddMode && (
-                          <div className="add-link-form">
-                              <input
-                                  type="text"
-                                  placeholder="Link title"
-                                  value={newLink.title}
-                                  onChange={(e) => setNewLink({ ...newLink, title: e.target.value })}
-                              />
-                              <input
-                                  type="text"
-                                  placeholder="Link URL"
-                                  value={newLink.url}
-                                  onChange={(e) => setNewLink({ ...newLink, url: e.target.value })}
-                              />
-                              <button onClick={addLink}>Add Link</button>
-                          </div>
-                      )}
-  
-                      {/* Cancel Button */}
-                      <button className="cancel-button" onClick={cancelAction}>Cancel</button>
-                  </div>
-              )}
-          </div>
-      );
-  };
-  
+}
+
+const SidebarWidget: React.FC = () => {
+    const [links, setLinks] = useState<Link[]>([]);
+    const [newLink, setNewLink] = useState({ title: "", url: "" });
+    const [isAddMode, setIsAddMode] = useState(false);
+    const [isDeleteMode, setIsDeleteMode] = useState(false);
+    const [isToolOpen, setIsToolOpen] = useState(false);
+
+    useEffect(() => {
+        const savedLinks = localStorage.getItem("sidebarLinks");
+        setLinks(savedLinks ? JSON.parse(savedLinks) : [
+            { title: "Home", url: "#" },
+            { title: "Categories", url: "#" },
+            { title: "Settings", url: "#" }
+        ]);
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("sidebarLinks", JSON.stringify(links));
+    }, [links]);
+
+    const addLink = () => {
+        if (newLink.title && newLink.url) {
+            setLinks([...links, newLink]);
+            setNewLink({ title: "", url: "" });
+            setIsAddMode(false);
+            setIsToolOpen(false); // Close tool options after adding a link
+        }
+    };
+
+    const removeLink = (index: number) => {
+        setLinks(links.filter((_, i) => i !== index));
+        setIsDeleteMode(false); // Close tool options after deleting a link
+    };
+
+    const cancelAction = () => {
+        setIsAddMode(false);
+        setIsDeleteMode(false);
+        setNewLink({ title: "", url: "" });
+    };
+
+    const toggleToolOptions = () => {
+        setIsToolOpen(!isToolOpen);
+        if (isAddMode || isDeleteMode) {
+            // Reset modes when tool options are toggled
+            setIsAddMode(false);
+            setIsDeleteMode(false);
+        }
+    };
+
+    return (
+        <div className="sidebar">
+            <div className="sidebar-header">
+                <FaTrash size={30} />
+                <h2>G Waste Team</h2>
+            </div>
+
+            <ul className="sidebarnav">
+                {links.map((link, index) => (
+                    <li key={index}>
+                        <a href={link.url}>
+                            <FaBox className="icon" />
+                            {link.title}
+                        </a>
+                        {isDeleteMode && <button className="delete-button" onClick={() => removeLink(index)}><FaTrash /></button>}
+                    </li>
+                ))}
+            </ul>
+
+            <div className="sidebar-controls">
+                <div className="tool-icon" onClick={toggleToolOptions}>
+                    <FaTools /> {/*tool icon*/}
+                </div>
+                {isToolOpen && (
+                    <div className="tool-options">
+                        <div className="tool-option" onClick={() => { setIsAddMode(true); setIsDeleteMode(false); setIsToolOpen(false); }}>Add Link</div>
+                        <div className="tool-option" onClick={() => { setIsDeleteMode(true); setIsAddMode(false); setIsToolOpen(false); }}>Delete Link</div>
+                    </div>
+                )}
+            </div>
+
+            {isAddMode && (
+                <div className="sidebar-actions">
+                    <div className="add-link-form">
+                        <input
+                            type="text"
+                            placeholder="Link title"
+                            value={newLink.title}
+                            onChange={(e) => setNewLink({ ...newLink, title: e.target.value })}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Link URL"
+                            value={newLink.url}
+                            onChange={(e) => setNewLink({ ...newLink, url: e.target.value })}
+                        />
+                        <button onClick={addLink}>Add Link</button>
+                    </div>
+                    <button className="cancel-button" onClick={cancelAction}>Cancel</button>
+                </div>
+            )}
+        </div>
+    );
+};
+
 
 //Stacked area chart
 
@@ -216,7 +242,7 @@ const StackedAreaChartWidget: React.FunctionComponent<SChartWidgetProps> = (prop
 
     // async function getBinNamesForTrends() {
     //     try {
-    //         const res = await props.uxpContext.executeAction('ranuga-exercise-model', 'getwastedata', {}, { json: true });
+    //         const res = await props.uxpContext.executeAction(props.model, props.action, {}, { json: true });
     //         console.log("Full API Response:", res);
             
     //         if (Array.isArray(res)) {
