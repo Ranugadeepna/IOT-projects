@@ -1,0 +1,39 @@
+{
+    "id": "49e7a6a5-f26d-497e-96a8-3e1a7a86e034",
+    "author": "",
+    "widgets": [
+        {
+            "id": "AgraganyaTraining2",
+            "name": "AgraganyaTraining2",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[]
+            "category":"",
+            "isTemplate": true/false // this will mark the widget as a template 
+        }
+    ],
+    "sidebarLinks": [
+        {
+            "id": "AgraganyaTraining2Link",
+            "label": "",
+            "description": "",
+            "target": "",
+            "icon": "",
+            "roles":[]
+        }
+    ],
+    "uis": [
+        {
+            "id": "AgraganyaTraining2Link",
+            "label":"",
+            "description": "",
+            "roles": []
+        }
+    ],
+    "menuItems": [
+        {
+            "id": "AgraganyaTraining2Link",
+            "title": "AgraganyaTraining2"
+        }
+    ]
+}

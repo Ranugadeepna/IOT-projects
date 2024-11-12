@@ -1,0 +1,29 @@
+{
+    "id": "af782f4a-34bb-42c4-e992-e9f2a54b5283",
+    "author": "",
+    "widgets": [
+        {
+            "id": "newUi",
+            "name": "newUi",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        }
+    ],
+    "sidebarLinks": [
+        
+    ],
+    "uis": [
+       {
+        "id": "newUi",
+            "label":"",
+            "description": "",
+            "roles": []
+        }
+    ],
+    "menuItems": [
+        
+    ]
+}

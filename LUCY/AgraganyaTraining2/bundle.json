@@ -1,0 +1,31 @@
+{
+    "id": "1e07e76f-49ec-4794-bccb-f8cb3f2d84c5",
+    "author": "",
+    
+    "widgets": [
+        {
+            "id": "AgraganyaTraining2",
+            "name": "AgraganyaTraining2",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        }
+    ],
+    "sidebarLinks": [
+        
+    ],
+    "uis": [
+        {
+            "id": "AgraganyaTraining2",
+            "label":"",
+            "description": "",
+            "roles": []
+        }
+       
+    ],
+    "menuItems": [
+        
+    ]
+}
