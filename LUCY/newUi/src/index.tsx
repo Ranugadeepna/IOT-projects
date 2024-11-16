@@ -4,13 +4,10 @@ import { TitleBar, FilterPanel, WidgetWrapper } from "uxp/components";
 import { IWDDesignModeProps } from "widget-designer/components";
 import BundleConfig from '../bundle.json';
 
-
-import { Route, Router, Routes } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-import Bins from "./components/Bins";
-import Reports from "./components/Reports";
 import './styles.scss';
-import './style.css';
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 export interface IWidgetProps {
     uxpContext?: IContextProvider,
@@ -21,16 +18,18 @@ export interface IWidgetProps {
 
 const NewUiWidget: React.FunctionComponent<IWidgetProps> = (props) => {
     return (
-       
-    <Router location={""} navigator={undefined}>
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/bins" element={<Bins />} />
-      <Route path="/reports" element={<Reports />} />
-    </Routes>
-  </Router>
-     
-    )
+        <>
+            <div style={{ display: "flex" }}>
+                <Sidebar />
+                <div style={{ flex: 1 }}>
+                    <Navbar />
+                    <div style={{ padding: "16px" }}>
+                        <Home />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 };
 
 /**
@@ -67,8 +66,9 @@ registerLink({
 
 
 registerUI({
-   id:"newUi",
-   component: NewUiWidget
+   id:"NewUiWidget",
+   component: NewUiWidget,
+   showDefaultHeader:false
 });
 
 

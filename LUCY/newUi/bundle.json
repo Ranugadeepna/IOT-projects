@@ -1,5 +1,5 @@
 {
-    "id": "af782f4a-34bb-42c4-e992-e9f2a54b5283",
+    "id": "2c5a2558-16a9-4689-9b7e-f5918fd01a5d",
     "author": "",
     "widgets": [
         {
@@ -16,8 +16,8 @@
         
     ],
     "uis": [
-       {
-        "id": "newUi",
+        {
+            "id": "NewUiWidget",
             "label":"",
             "description": "",
             "roles": []
