@@ -68,7 +68,7 @@ registerLink({
 registerUI({
    id:"NewUiWidget",
    component: NewUiWidget,
-   showDefaultHeader:false
+   showDefaultHeader:false,
 });
 
 

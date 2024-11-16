@@ -74353,7 +74353,7 @@ registerLink({
 (0, uxp_1.registerUI)({
     id: "NewUiWidget",
     component: NewUiWidget,
-    showDefaultHeader: false
+    showDefaultHeader: false,
 });
 /**
  * Register as a Widget template
